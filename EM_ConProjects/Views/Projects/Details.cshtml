@@ -1,0 +1,50 @@
+﻿@model EM_ConProjects.Models.DataModel.Projects
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Projects</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectLeader)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectLeader)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Project_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

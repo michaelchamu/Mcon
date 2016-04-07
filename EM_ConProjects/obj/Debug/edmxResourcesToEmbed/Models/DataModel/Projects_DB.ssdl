@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Projects_DB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Projects_DBStoreContainer">
+    <EntitySet Name="Projects" EntityType="Projects_DB.Store.Projects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Localities" EntityType="Projects_DB.Store.Localities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contractors" EntityType="Projects_DB.Store.Contractors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Actions" EntityType="Projects_DB.Store.Actions" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="LocalitiesProjects" Association="Projects_DB.Store.LocalitiesProjects">
+      <End Role="Localities" EntitySet="Localities" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="ContractorsProjects" Association="Projects_DB.Store.ContractorsProjects">
+      <End Role="Contractors" EntitySet="Contractors" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="ActionsProjects" Association="Projects_DB.Store.ActionsProjects">
+      <End Role="Actions" EntitySet="Actions" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="Project_Id" />
+    </Key>
+    <Property Name="Project_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectLeader" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteVisits" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Localities">
+    <Key>
+      <PropertyRef Name="Locality_Id" />
+    </Key>
+    <Property Name="Locality_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocalityName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectsProject_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contractors">
+    <Key>
+      <PropertyRef Name="Contractor_Id" />
+    </Key>
+    <Property Name="Contractor_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractorName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractorSurname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractorTel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectsProject_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Actions">
+    <Key>
+      <PropertyRef Name="Actions_Id" />
+    </Key>
+    <Property Name="Actions_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActionDesc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectsProject_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="LocalitiesProjects">
+    <End Role="Localities" Type="Projects_DB.Store.Localities" Multiplicity="*" />
+    <End Role="Projects" Type="Projects_DB.Store.Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Localities">
+        <PropertyRef Name="ProjectsProject_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractorsProjects">
+    <End Role="Contractors" Type="Projects_DB.Store.Contractors" Multiplicity="*" />
+    <End Role="Projects" Type="Projects_DB.Store.Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Contractors">
+        <PropertyRef Name="ProjectsProject_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActionsProjects">
+    <End Role="Actions" Type="Projects_DB.Store.Actions" Multiplicity="*" />
+    <End Role="Projects" Type="Projects_DB.Store.Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Actions">
+        <PropertyRef Name="ProjectsProject_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Projects_DB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Projects_DBStoreContainer">
+    <EntitySet Name="Projects" EntityType="Projects_DB.Store.Projects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Localities" EntityType="Projects_DB.Store.Localities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contractors" EntityType="Projects_DB.Store.Contractors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Actions" EntityType="Projects_DB.Store.Actions" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="LocalitiesProjects" Association="Projects_DB.Store.LocalitiesProjects">
+      <End Role="Localities" EntitySet="Localities" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="ContractorsProjects" Association="Projects_DB.Store.ContractorsProjects">
+      <End Role="Contractors" EntitySet="Contractors" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="ActionsProjects" Association="Projects_DB.Store.ActionsProjects">
+      <End Role="Actions" EntitySet="Actions" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="Project_Id" />
+    </Key>
+    <Property Name="Project_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectLeader" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteVisits" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Localities">
+    <Key>
+      <PropertyRef Name="Locality_Id" />
+    </Key>
+    <Property Name="Locality_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocalityName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectsProject_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contractors">
+    <Key>
+      <PropertyRef Name="Contractor_Id" />
+    </Key>
+    <Property Name="Contractor_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractorName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractorSurname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContractorTel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectsProject_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Actions">
+    <Key>
+      <PropertyRef Name="Actions_Id" />
+    </Key>
+    <Property Name="Actions_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActionDesc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectsProject_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="LocalitiesProjects">
+    <End Role="Localities" Type="Projects_DB.Store.Localities" Multiplicity="*" />
+    <End Role="Projects" Type="Projects_DB.Store.Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Localities">
+        <PropertyRef Name="ProjectsProject_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractorsProjects">
+    <End Role="Contractors" Type="Projects_DB.Store.Contractors" Multiplicity="*" />
+    <End Role="Projects" Type="Projects_DB.Store.Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Contractors">
+        <PropertyRef Name="ProjectsProject_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActionsProjects">
+    <End Role="Actions" Type="Projects_DB.Store.Actions" Multiplicity="*" />
+    <End Role="Projects" Type="Projects_DB.Store.Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Actions">
+        <PropertyRef Name="ProjectsProject_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Projects_DB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Projects_DBContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Projects" EntityType="Projects_DB.Projects" />
+          <EntitySet Name="Localities" EntityType="Projects_DB.Localities" />
+          <EntitySet Name="Contractors" EntityType="Projects_DB.Contractors" />
+          <AssociationSet Name="LocalitiesProjects" Association="Projects_DB.LocalitiesProjects">
+            <End Role="Localities" EntitySet="Localities" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="ContractorsProjects" Association="Projects_DB.ContractorsProjects">
+            <End Role="Contractors" EntitySet="Contractors" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <EntitySet Name="Actions" EntityType="Projects_DB.Actions" />
+          <AssociationSet Name="ActionsProjects" Association="Projects_DB.ActionsProjects">
+            <End Role="Actions" EntitySet="Actions" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="Project_Id" />
+          </Key>
+          <Property Name="Project_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectCode" Type="String" Nullable="false" />
+          <Property Name="ProjectName" Type="String" Nullable="false" />
+          <Property Name="ProjectStatus" Type="String" Nullable="false" />
+          <Property Name="ProjectLeader" Type="String" Nullable="false" />
+          <NavigationProperty Name="Localities" Relationship="Projects_DB.LocalitiesProjects" FromRole="Projects" ToRole="Localities" />
+          <NavigationProperty Name="Contractors" Relationship="Projects_DB.ContractorsProjects" FromRole="Projects" ToRole="Contractors" />
+          <NavigationProperty Name="Actions" Relationship="Projects_DB.ActionsProjects" FromRole="Projects" ToRole="Actions" />
+          <Property Name="SiteVisits" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Localities">
+          <Key>
+            <PropertyRef Name="Locality_Id" />
+          </Key>
+          <Property Name="Locality_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocalityName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="Projects_DB.LocalitiesProjects" FromRole="Localities" ToRole="Projects" />
+          <Property Name="ProjectsProject_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contractors">
+          <Key>
+            <PropertyRef Name="Contractor_Id" />
+          </Key>
+          <Property Name="Contractor_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" />
+          <Property Name="ContractorName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="Projects_DB.ContractorsProjects" FromRole="Contractors" ToRole="Projects" />
+          <Property Name="ContractorSurname" Type="String" Nullable="false" />
+          <Property Name="ContractorTel" Type="String" Nullable="false" />
+          <Property Name="ProjectsProject_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="LocalitiesProjects">
+          <End Type="Projects_DB.Localities" Role="Localities" Multiplicity="*" />
+          <End Type="Projects_DB.Projects" Role="Projects" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Project_Id" />
+            </Principal>
+            <Dependent Role="Localities">
+              <PropertyRef Name="ProjectsProject_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ContractorsProjects">
+          <End Type="Projects_DB.Contractors" Role="Contractors" Multiplicity="*" />
+          <End Type="Projects_DB.Projects" Role="Projects" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Project_Id" />
+            </Principal>
+            <Dependent Role="Contractors">
+              <PropertyRef Name="ProjectsProject_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Actions">
+          <Key>
+            <PropertyRef Name="Actions_Id" />
+          </Key>
+          <Property Name="Actions_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionDesc" Type="String" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="Projects_DB.ActionsProjects" FromRole="Actions" ToRole="Projects" />
+          <Property Name="ProjectsProject_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ActionsProjects">
+          <End Type="Projects_DB.Actions" Role="Actions" Multiplicity="*" />
+          <End Type="Projects_DB.Projects" Role="Projects" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Project_Id" />
+            </Principal>
+            <Dependent Role="Actions">
+              <PropertyRef Name="ProjectsProject_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Projects_DBStoreContainer" CdmEntityContainer="Projects_DBContainer">
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="IsTypeOf(Projects_DB.Projects)">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="Project_Id" ColumnName="Project_Id" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="ProjectLeader" ColumnName="ProjectLeader" />
+          <ScalarProperty Name="SiteVisits" ColumnName="SiteVisits" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Localities">
+      <EntityTypeMapping TypeName="IsTypeOf(Projects_DB.Localities)">
+        <MappingFragment StoreEntitySet="Localities">
+          <ScalarProperty Name="Locality_Id" ColumnName="Locality_Id" />
+          <ScalarProperty Name="LocalityName" ColumnName="LocalityName" />
+          <ScalarProperty Name="ProjectsProject_Id" ColumnName="ProjectsProject_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contractors">
+      <EntityTypeMapping TypeName="IsTypeOf(Projects_DB.Contractors)">
+        <MappingFragment StoreEntitySet="Contractors">
+          <ScalarProperty Name="Contractor_Id" ColumnName="Contractor_Id" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ContractorName" ColumnName="ContractorName" />
+          <ScalarProperty Name="ContractorSurname" ColumnName="ContractorSurname" />
+          <ScalarProperty Name="ContractorTel" ColumnName="ContractorTel" />
+          <ScalarProperty Name="ProjectsProject_Id" ColumnName="ProjectsProject_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actions">
+      <EntityTypeMapping TypeName="IsTypeOf(Projects_DB.Actions)">
+        <MappingFragment StoreEntitySet="Actions">
+          <ScalarProperty Name="Actions_Id" ColumnName="Actions_Id" />
+          <ScalarProperty Name="ActionDesc" ColumnName="ActionDesc" />
+          <ScalarProperty Name="ProjectsProject_Id" ColumnName="ProjectsProject_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

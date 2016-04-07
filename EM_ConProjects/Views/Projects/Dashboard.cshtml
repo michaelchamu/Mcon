@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EM_ConProjects.Models.ProjectsViewModel>
+@{
+    int x, y, z, countActions, countContractors, countLocations;
+    
+    }
+@foreach (var item in Model)
+{
+     @Html.DisplayFor(modelItem => item.thisProject)
+    
+        countActions = item.projectActions.Count();
+    for(x = 0; x<countActions; x++){
+        @Html.DisplayFor(modelItem => item.projectActions[x].ActionDesc)
+
+    }
+    
+    countContractors = item.projectsConts.Count();
+    for(y=0;y<countContractors;y++){
+        @Html.DisplayFor(modelItem => item.projectsConts[y].CompanyName)
+        @Html.DisplayFor(modelItem => item.projectsConts[y].ContractorName)
+        @Html.DisplayFor(modelItem => item.projectsConts[y].ContractorSurname)
+        @Html.DisplayFor(modelItem => item.projectsConts[y].ContractorTel)
+    }
+
+    countLocations = item.projectLocs.Count();
+    for (z = 0; z < countLocations; z++)
+    {
+        @Html.DisplayFor(modelItem => item.projectLocs[z].LocalityName)
+    }
+
+
+
+}

@@ -1,0 +1,652 @@
+﻿@model EM_ConProjects.Models.ProjectsViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using(Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <br />
+    
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <center><h1>Project Document Preview</h1></center>
+                </div>
+                <div class="panel-body">
+                    <table class="table-bordered col-md-12">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <center><b>Project Leader</b></center>
+                                </td>
+                                <td>
+                                    <center><b>Project Status</b></center>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="projLead">
+
+                                </td>
+                                <td id="projStat">
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    &nbsp;
+                    &nbsp;
+                    <center><h2>Localities</h2></center>
+                    <table class="table-bordered col-md-12">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <center><b>Town Name</b></center>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody id="listOfLocations">
+                            @*<tr>
+        <td id=""><center>Okahandja</center></td>
+        <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+    </tr>
+    <tr>
+        <td id=""><center>Windhoek</center></td>
+        <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+    </tr>
+    <tr>
+        <td id=""><center>Gobabis</center></td>
+        <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+    </tr>
+    <tr>
+        <td id=""><center>Rehoboth</center></td>
+        <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+    </tr>*@
+                        </tbody>
+                    </table>
+
+                    &nbsp;
+                    &nbsp;
+
+                    <center><h2>Contractors</h2></center>
+                    <table class="table-bordered col-md-12">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <center><b>Company Name</b></center>
+                                </td>
+                                <td>
+                                    <center><b>Contact Name</b></center>
+                                </td>
+                                <td>
+                                    <center><b>Contact Surname</b></center>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody id="listofcontractors">
+                            @*  <tr>
+                <td id=""><center>Company1</center></td>
+                <td id=""><center>Jonathnan</center></td>
+                <td id=""><center>Mabaheke</center></td>
+                <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+            </tr>
+            <tr>
+                <td id=""><center>Company2</center></td>
+                <td id=""><center>Jonathnan</center></td>
+                <td id=""><center>Mabaheke</center></td>
+                <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+            </tr>
+            <tr>
+                <td id=""><center>Company3</center></td>
+                <td id=""><center>Jonathnan</center></td>
+                <td id=""><center>Mabaheke</center></td>
+                <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+            </tr>
+            <tr>
+                <td id=""><center>Company4</center></td>
+                <td id=""><center>Jonathnan</center></td>
+                <td id=""><center>Mabaheke</center></td>
+                <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+            </tr>*@
+                        </tbody>
+                    </table>
+
+                    &nbsp;
+                    &nbsp;
+
+                    <center><h2>Actions</h2></center>
+                    <table class="table-bordered col-md-12">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <center><b>Name</b></center>
+                                </td>
+                                <td>
+                                    <center><b>Description</b></center>
+                                </td>
+                                <td>
+                                    <center><b>Status</b></center>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id=""><center>Action1</center></td>
+                                <td id=""><center>This is the description for Action 1</center></td>
+                                <td id=""><center>Incomplete</center></td>
+                                <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+                            </tr>
+                            <tr>
+                                <td id=""><center>Action2</center></td>
+                                <td id=""><center>This is the description for Action 2</center></td>
+                                <td id=""><center>Incomplete</center></td>
+                                <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+                            </tr>
+                            <tr>
+                                <td id=""><center>Action3</center></td>
+                                <td id=""><center>This is the description for Action3</center></td>
+                                <td id=""><center>Incomplete</center></td>
+                                <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+                            </tr>
+                            <tr>
+                                <td id=""><center>Action4</center></td>
+                                <td id=""><center>This is the description for Action4</center></td>
+                                <td id=""><center>Incomplete</center></td>
+                                <td id=""><center><button class="btn-sm btn-danger" type="button"><b>X</b></button></center></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" id="projDet">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <center><h1> 1/4 Project Details</h1></center>
+                </div>
+                <div class="panel-body">
+                    @*<div class="form-horizontal">*@
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.thisProject.ProjectCode, new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.thisProject.ProjectCode, new { @class = "form-control", placeholder = "PP-" + (ViewBag.Amount + 1), id = "code" })
+                            @Html.ValidationMessageFor(model => model.thisProject.ProjectCode)
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.thisProject.ProjectName, new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.thisProject.ProjectName, new { @class = "form-control", id = "projName" })
+                            @Html.ValidationMessageFor(model => model.thisProject.ProjectName)
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.thisProject.ProjectStatus, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(n => n.thisProject.ProjectStatus, new SelectList(ViewBag.Stats, "Value", "Text"), "Please select a Status", new { @class = "form-control", id = "projStatus" })
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.thisProject.SiteVisits, new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.thisProject.SiteVisits, new { @class = "form-control", id="visits" })
+                            @Html.ValidationMessageFor(model => model.thisProject.SiteVisits)
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.thisProject.ProjectLeader, new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.thisProject.ProjectLeader, new { @class = "form-control", id = "projLeader" })
+                            @Html.ValidationMessageFor(model => model.thisProject.ProjectLeader)
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="row">
+                        <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="loadLoc()" id="projBtnNext" type="button"> NEXT </button> 
+                    </div>                    
+                                    
+                    @*</div>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" hidden="hidden" id="loc">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <center><h1> 2/4 Localities</h1></center>
+                </div>
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.projectLocs[0].LocalityName, new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.projectLocs[0].LocalityName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.projectLocs[0].LocalityName)
+                        </div>
+                    </div>
+
+                    <div id="addLocation">
+
+                    </div>
+
+                    &nbsp;
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="resetLoc()" id="locBtnBack" type="button"> BACK </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="addBox()" id="addBtn1" type="button"> ADD </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="loadCont()" id="locBtnNext" type="button"> NEXT </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" hidden="hidden" id="cont">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <center><h1> 3/4 Contractors</h1></center>
+                </div>
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.projectsConts[0].CompanyName, "Company Name", new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.projectsConts[0].CompanyName, new { @class = "form-control"@*, id = "code"*@ })
+                            @Html.ValidationMessageFor(model => model.projectsConts[0].CompanyName)
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.projectsConts[0].ContractorName, "Contact Name", new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.projectsConts[0].ContractorName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.projectsConts[0].ContractorName)
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.projectsConts[0].ContractorSurname, "Contact Surname", new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.projectsConts[0].ContractorSurname, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.projectsConts[0].ContractorSurname)
+                        </div>
+                    </div>
+                    &nbsp;
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.projectsConts[0].ContractorTel, "Contact Tel.", new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.projectsConts[0].ContractorTel, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.projectsConts[0].ContractorTel)
+                        </div>
+                    </div>
+                    
+                    &nbsp;
+                    <div id="contractor">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="resetCont()" id="contBtnBack" type="button"> BACK </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="addCon()" id="addBtn2" type="button"> ADD </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="loadAct()" id="contBtnNext" type="button"> NEXT </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" hidden="hidden" id="act">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <center><h1> 4/4 Actions</h1></center>
+                </div>
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.projectActions[0].ActionDesc, "Action Name", new { @class = "control-label col-md-4" })
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(model => model.projectActions[0].ActionDesc, new { @class = "form-control"@*, id = "code" *@})
+                            @Html.ValidationMessageFor(model => model.projectActions[0].ActionDesc)
+                        </div>
+                    </div>
+                    <br />
+                    &nbsp;
+                    <div id="addAction">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="resetAct()" id="actBtnBack" type="button"> BACK </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="addAction()" id="addBtn3" type="button"> ADD </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-success col-md-8 col-md-offset-2" id="actBtnSave"> SAVE </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        var Locations = {};
+        var locationName = new Array();
+       
+        (function worker() {
+            $.ajax({
+                success: function (data) {
+                    //get contents of action div and display
+
+                },
+                complete: function () {
+                    // Schedule the next request when the current one's complete
+                    setTimeout(worker, 3000);
+                }
+            });
+        })();
+
+        function resetLoc() {
+            $("#projDet").removeAttr("hidden");
+            $("#loc").attr("hidden", "hidden");
+            $("#projBtnNext").removeAttr("disabled");
+        }
+
+        function loadLoc() {
+            $("#projLead").html("<center><p> " + $("#projLeader").val() + "</p></center>");
+            $("#projStat").html("<center><p> " + $("#projStatus").val() + "</p></center>");
+            $("#projDet").attr("hidden", "hidden");
+            $("#loc").removeAttr("hidden");
+            document.getElementById("projBtnNext").disabled = true;
+        }
+
+        function resetCont() {
+            $("#loc").removeAttr("hidden");
+            $("#cont").attr("hidden", "hidden");
+            $("#locBtnBack").removeAttr("disabled");
+            $("#locBtnNext").removeAttr("disabled");
+        }
+
+        function loadCont() {
+            $("#loc").attr("hidden", "hidden");
+            $("#cont").removeAttr("hidden");
+            //count number of elements in global varible
+            var index = $('[id^=projectLocs_]').length;
+            var x;
+            //traverse through all elements and get location value
+            var list = document.querySelectorAll('[id^="projectLocs_"]');
+            var innerText = '';
+            var projectRow = 'project_' + Location.id;
+            for (x = 0; x < index; x++) {
+                projectRow = 'project_' + x;
+                //populate table with location values
+                innerText += '<tr  id="' + projectRow + '"><td><center>' + document.getElementById(list[x].id).value + '</center></td>';
+                innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + projectRow + ')"><b>X</b></button></center></td></tr>';
+              
+                //document.getElementById(list[x].id).value;
+            }
+            
+            document.getElementById("listOfLocations").innerHTML = innerText;
+            document.getElementById("locBtnBack").disabled = true;
+            document.getElementById("locBtnNext").disabled = true;
+        }
+
+        function resetAct() {
+            $("#cont").removeAttr("hidden");
+            $("#act").attr("hidden", "hidden");
+            $("#contBtnBack").removeAttr("disabled");
+            $("#contBtnNext").removeAttr("disabled");
+        }
+
+        function loadAct() {
+            var index = $('[id$="__CompanyName"]').length;
+            var x;
+            //traverse through all elements and get location value
+            var namesList = document.querySelectorAll('[id$="__ContractorName"]');
+            var companyList = document.querySelectorAll('[id$="__CompanyName"]');
+            var surnameList = document.querySelectorAll('[id$="__ContractorSurname"]');
+            var phoneList = document.querySelectorAll('[id$="__ContractorTel"]');
+            console.log(index);
+            var innerText = '';
+            var contractorRow;
+            for (x = 0; x < index; x++) {
+                contractorRow = 'contractor_' + x;
+                //populate table with location values
+                
+                innerText += '<tr id="' + contractorRow + '">';
+                innerText += '<td id=""><center>' + document.getElementById(companyList[x].id).value + '</center></td>';
+                innerText += '<td id=""><center>' + document.getElementById(phoneList[x].id).value + '</center></td>';
+                innerText += '<td id=""><center>' + document.getElementById(namesList[x].id).value + '</center></td>';
+                innerText += '<td id=""><center>' + document.getElementById(surnameList[x].id).value + '</center></td>';
+                innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + contractorRow + ')"><b>X</b></button></center></td></tr>';
+                
+                console.log(namesList[x].id); //get nametextbox id
+                console.log(companyList[x].id);
+                console.log(surnameList[x].id);
+                //console.log(namesList[x].id);
+                //console.log(surnameList);
+
+                //innerText += '<tr  id="' + contractorRow + '"><td><center>' + document.getElementById(list[x].id).value + '</center></td>';
+                //innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + contractorRow + ')"><b>X</b></button></center></td></tr>';
+
+                //document.getElementById(list[x].id).value;
+            }
+
+            document.getElementById("listofcontractors").innerHTML = innerText;
+            $("#cont").attr("hidden", "hidden");
+            $("#act").removeAttr("hidden");
+            document.getElementById("contBtnBack").disabled = true;
+            document.getElementById("contBtnNext").disabled = true;
+        }
+
+        function addBox() {
+            
+            var defaultLocation = $('#projectLocs_0__LocalityName').val();//always get the value of the first/default textbox textbox
+
+            if (Location.id == 'undefined' || Location.id == null) {
+                //check if global variable has no value, assign the first value which is always 1
+                Location.id = 1;
+            }
+            else {
+                //if it has value, add 1 to currents value to ensure number is always unique
+                Location.id = parseInt(Location.id + 1);
+            }
+            var textBoxName = 'projectLocs['+Location.id+'].LocalityName';
+            var textBoxId = 'projectLocs_' + Location.id + '__LocalityName';
+            var projectRow = 'project_' + Location.id;
+            var textBox = '<div class="form-group" id="'+projectRow+'">';
+                textBox += '<label for="' + textBoxId + '" class="control-label col-md-3" style="margin-top:12px;">LocalityName</label>';
+                textBox += '<div class="col-md-7"><input class="form-control" id="' + textBoxId + '" name="' + textBoxName + '" type="text" style="margin-top:10px;">';
+                textBox += '<span data-valmsg-replace="true" data-valmsg-for="' + textBoxName + '" class="field-validation-valid"></span></div>';
+                textBox += '<button class="btn-sm btn-danger" style="margin-top:12px;margin-left:-12px;" onclick="removeTextBox(' + projectRow + ')" type="button"><b>X</b></button>';
+                textBox += '</div>';
+
+                locationName[Location.id] = $(textBoxId).val();
+
+                $('#addLocation').append(textBox);
+        }
+
+        function addCon() {
+            var defaultCompany = $('#projectsConts_0__CompanyName').val();//always get the value of the first/default textbox textbox
+            var defaultContractor = $('#projectsConts_0__ContractorName').val();
+            var defaultSurname = $('#projectsConts_0__ContractorSurname').val();
+            var defaultPhone = $('#projectsConts_0__ContractorTel').val;
+            if (Location.id == 'undefined' || Location.id == null) {
+                //check if global variable has no value, assign the first value which is always 1
+                Location.id = 1;
+            }
+            else {
+                //if it has value, add 1 to currents value to ensure number is always unique
+                Location.id = parseInt(Location.id + 1);
+            }
+
+            var companyName = 'projectsConts['+Location.id+'].CompanyName';
+            var companyTextBox = 'projectsConts_' + Location.id + '__CompanyName';
+
+            var contractorName = 'projectsConts[' + Location.id + '].ContractorName';
+            var contractorTextBox = 'projectsConts_' + Location.id + '__ContractorName';
+
+            var contractorSurname = 'projectsConts[' + Location.id + '].ContractorSurname';
+            var surnameTextBox = 'projectsConts_' + Location.id + '__ContractorSurname';
+
+            var contractorTel = 'projectsConts[' + Location.id + '].ContractorTel';
+            var contractorTelTextBox = 'projectsConts_' + Location.id + '__ContractorTel';
+
+            var contractRow = 'contractor_' + Location.id;
+            /*-------------------------------------------*/
+            var form = '<div id="'+contractRow+'">';
+                form += '<div class="form-group">';
+                form += '<label for="projectsConts_0__CompanyName" class="control-label col-md-4">Company Name</label>';
+                form += '<div class="col-md-7">';
+                form += '<input type="text" value="" name="companyName" id="' + companyTextBox + '" class="form-control" style="margin-top:10px;">';
+                form += '<span data-valmsg-replace="true" data-valmsg-for="projectsConts[0].CompanyName" class="field-validation-valid"></span></div>';
+                form += '<button class="btn-sm btn-danger" style="margin-top:12px;margin-left:-12px;" onclick="removeTextBox(' + contractRow + ')" type="button"><b>X</b></button>';
+                form += '</div>';
+                            /*-------------------------------------*/
+                form +=  '<div class="form-group">';
+                form +=  '<label for="projectsConts_0__ContractorName" class="control-label col-md-4">Contact Name</label>';
+                form +=  '<div class="col-md-8">';
+                form += '<input type="text" value="" name="' + contractorName + '" id="' + contractorTextBox + '" class="form-control" style="margin-top:10px;">';
+                form += '<span data-valmsg-replace="true" data-valmsg-for="' + contractorTextBox + '" class="field-validation-valid"></span>';
+                form +=  '</div></div>';
+                            /*---------------------------------------*/
+                form +=   '<div class="form-group">';
+                form +=   '<label for="projectsConts_0__ContractorSurname" class="control-label col-md-4">Contact Surname</label>';
+                form +=   '<div class="col-md-8">';
+                form += '<input type="text" value="" name="projectsConts[0].ContractorSurname" id="' + surnameTextBox + '" class="form-control" style="margin-top:10px;">';
+                form +=   '<span data-valmsg-replace="true" data-valmsg-for="projectsConts[0].ContractorSurname" class="field-validation-valid"></span>';
+                form +=   '</div></div>';
+                            /*--------------------------------------------------*/
+                form +=   '<div class="form-group">';
+                form +=   '<label for="projectsConts_0__ContractorTel" class="control-label col-md-4">Contact Tel.</label>';
+                form +=   '<div class="col-md-8">';
+                form += '<input type="text" value="" name="projectsConts[0].ContractorTel" id="' + contractorTelTextBox + '" class="form-control" style="margin-top:10px;"><br>';
+                form +=   '<span data-valmsg-replace="true" data-valmsg-for="projectsConts[0].ContractorTel" class="field-validation-valid"></span>';
+                form +=   '</div></div></div>';
+            /*----------------------------------------------*/
+                $('#contractor').append(form);
+
+        }
+
+        function addAction()
+        {
+            var defaultAction = $('#projectActions_0__ActionDesc').val();//always get the value of the first/default textbox textbox
+            if (Location.id == 'undefined' || Location.id == null) {
+                //check if global variable has no value, assign the first value which is always 1
+                Location.id = 1;
+            }
+            else {
+                //if it has value, add 1 to currents value to ensure number is always unique
+                Location.id = parseInt(Location.id + 1);
+            }
+            var textBoxId = 'projectActions' + Location.id + '__ActionDesc';
+            var textBoxName = 'projectActions['+Location.id+'].ActionDesc';
+            var actionRow = 'action_' + Location.id;
+            var textBox = '<div class="form-group" id="' + actionRow + '">';
+            textBox += '<label for="' + textBoxId + '" class="control-label col-md-4" style="margin-top:12px;">Action name</label>';
+            textBox += '<div class="col-md-7"><input class="form-control" id="' + textBoxId + '" name="' + textBoxName + '" type="text" style="margin-top:10px;">';
+            textBox += '<span data-valmsg-replace="true" data-valmsg-for="' + textBoxName + '" class="field-validation-valid"></span></div>';
+            textBox += '<button class="btn-sm btn-danger" style="margin-top:12px;margin-left:-12px;" onclick="removeTextBox(' + actionRow + ')" type="button"><b>X</b></button>';
+            textBox += '</div>';
+
+            locationName[Location.id] = $(textBoxId).val();
+
+            $('#addAction').append(textBox);
+        }
+        function removeTextBox(id) {
+            $(id).remove();
+        }
+
+        $("#actBtnSave").click(function () {
+            var contractors = new Array();
+            var projectActions = new Array();
+            var projectList = new Array();
+            var localities = new Array();
+
+            //get all contents from contractor
+            var namesList = document.querySelectorAll('[id$="__ContractorName"]');
+            var companyList = document.querySelectorAll('[id$="__CompanyName"]');
+            var surnameList = document.querySelectorAll('[id$="__ContractorSurname"]');
+            var telList = document.querySelectorAll('[id$="__ContractorTel"]');
+            var contracts = $('[id$="__CompanyName"]').length;
+            console.info(contracts);
+
+            for (x = 0; x < parseInt(contracts); x++) {
+                contractors.push({
+                    "contractorName": document.getElementById(namesList[x].id).value,
+                    "contractorCompany": document.getElementById(companyList[x].id).value,
+                    "contractorSurname": document.getElementById(surnameList[x].id).value,
+                    "contractorTel": document.getElementById(telList[x].id).value
+                });
+            }
+            //get all contents from actions
+            var actionList = document.querySelectorAll('[id$="__ActionDesc"]');
+            var actions = $('[id$="__ActionDesc"]').length;
+
+            //get all contents from projects
+            projectList.push({
+                "projectCode": document.getElementById("code").value,
+                "projectName": document.getElementById("projName").value,
+                "projectStatus": document.getElementById("projStatus").value,
+                "siteVisits": document.getElementById("visits").value,
+                "projectLeader": document.getElementById("projLeader").value
+            });
+         
+            //get all contents from locations
+            var locationList = document.querySelectorAll('[id$="__LocalityName"]');
+            var locations = $('[id$="__LocalityName"]').length;
+            for (x = 0; x < parseInt(locations); x++) {
+                localities.push({ "location": document.getElementById(locationList[x].id).value });
+            }
+            for (x = 0; x < parseInt(actions) ; x++) {
+                projectActions.push({ "actionDescription": document.getElementById(actionList[x].id).value });
+            }
+            //console.log(localities);
+            //console.log(projectActions);
+            console.log(contractors);
+            //console.log(projectList);
+            
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            $.ajax({
+                url: "Create",
+                type: "POST",
+                data: { "__RequestVerificationToken": token, "locations": localities, "actions": projectActions, "contractors": contractors, "projects": projectList },
+                    success: function (data) {
+                        console.log(data);
+                    }
+
+            })
+        })
+    </script>
+}
