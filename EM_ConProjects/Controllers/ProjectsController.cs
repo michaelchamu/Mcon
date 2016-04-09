@@ -8,12 +8,18 @@ using System.Web;
 using System.Web.Mvc;
 using EM_ConProjects.Models.DataModel;
 using EM_ConProjects.Models;
+using Dapper;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace EM_ConProjects.Controllers
 {
     public class ProjectsController : Controller
     {
         private Projects_DBContainer db = new Projects_DBContainer();
+
+        //This declares the variable that Dapper will use to acces the database.
+        private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
         // GET: /Projects/
         public ActionResult Index()
@@ -23,7 +29,19 @@ namespace EM_ConProjects.Controllers
 
         public ActionResult Dashboard()
         {
-           
+
+            DashboardView dash = new DashboardView();
+
+            dash.totalProjects = db.Projects.Count();
+
+            //Retrieve total number of projects in the database that have the status completed
+            dash.totalProjectsComplete = con.Query("SELECT COUNT(ID) FROM Projects WHERE ProjectStatus = 'Complete'").SingleOrDefault();
+
+            //This will be the user database count
+            dash.totalUsers = 10;
+
+            dash.companyEfficiencyRatio = Math.Round((double)(dash.totalProjectsComplete / dash.totalProjects * 100), 2);
+
 
             //loop through the projects
             //take project in position x of project list and add it to position x in the viewmodellist
@@ -32,34 +50,42 @@ namespace EM_ConProjects.Controllers
             List<Projects> projects = db.Projects.ToList();
             List<Actions> actions = db.Actions.ToList();
             List<Contractors> contractors = db.Contractors.ToList();
-            List<Localities> locations = db.Localities.ToList();
+            List<Localities> locations = db.Localities.ToList();        
+   
 
-            int projectsCount, actionsCount, contractorCount, locationCount, i, x, y, z;
-
-            projectsCount = projects.Count();
-            actionsCount = actions.Count();
-            contractorCount = contractors.Count();
-            locationCount = locations.Count();
             
-            for (x = 0; x < projectsCount; x++ )
-            {
-                projectList[x].thisProject = projects[x];
-                //add actions to list
-                for (i = 0; i < actionsCount; i++)
-                {
-                    projectList[x].projectActions[i] = actions[i];
-                }
-                //add locations to list
-                for (y = 0; y < locationCount;y++ )
-                {
-                    projectList[x].projectLocs[y] = locations[y];
-                }
-                //add contractors to list
-                for (z = 0; z < contractorCount;z++ )
-                {
-                    projectList[x].projectsConts[z] = contractors[z];
-                }
-            }
+            //for (int x = 0; x < projects.Count; x++ )
+            //{
+            //    ProjectsViewModel thisModel = new ProjectsViewModel();
+            //    thisModel.projectActions = new List<Actions>();
+            //    thisModel.projectLocs = new List<Localities>();
+            //    thisModel.projectsConts = new List<Contractors>();
+
+            //    thisModel.thisProject = projects[x];
+                
+            //    //add actions to list
+            //    foreach (var item in actions)
+            //    {
+            //        thisModel.projectActions.Add(item);
+            //    }
+
+            //    //add locations to list
+            //    foreach (var item in locations)
+            //    {
+            //        thisModel.projectLocs.Add(item);
+            //    }
+
+            //    //add contractors to list
+            //    foreach (var item in contractors)
+            //    {
+            //        thisModel.projectsConts.Add(item);
+            //    }                
+                
+            //    projectList.Add(thisModel);
+            //}
+
+
+
             return View(projectList.ToList());
         }
         // GET: /Projects/Details/5
