@@ -35,7 +35,7 @@ namespace EM_ConProjects.Controllers
             dash.totalProjects = db.Projects.Count();
 
             //Retrieve total number of projects in the database that have the status completed
-            dash.totalProjectsComplete = con.Query("SELECT COUNT(ID) FROM Projects WHERE ProjectStatus = 'Complete'").SingleOrDefault();
+            dash.totalProjectsComplete =  con.Query<int>("SELECT COUNT(Project_Id) FROM Projects WHERE ProjectStatus = 'Complete'").SingleOrDefault();
 
             //This will be the user database count
             dash.totalUsers = 10;
@@ -86,7 +86,7 @@ namespace EM_ConProjects.Controllers
 
 
 
-            return View(projectList.ToList());
+            return View(dash);
         }
         // GET: /Projects/Details/5
         public ActionResult Details(int? id)

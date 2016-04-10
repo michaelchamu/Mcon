@@ -218,3 +218,6 @@ C:\Users\Admin\Documents\GitHub\Mcon\EM_ConProjects\bin\Microsoft.Owin.Security.
 C:\Users\Admin\Documents\GitHub\Mcon\EM_ConProjects\obj\Debug\EM_ConProjects.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Documents\GitHub\Mcon\EM_ConProjects\obj\Debug\EM_ConProjects.dll
 C:\Users\Admin\Documents\GitHub\Mcon\EM_ConProjects\obj\Debug\EM_ConProjects.pdb
+C:\Users\MaddMike\Downloads\M_con\EM_ConProjects\bin\Dapper.dll
+C:\Users\MaddMike\Downloads\M_con\EM_ConProjects\bin\Dapper.pdb
+C:\Users\MaddMike\Downloads\M_con\EM_ConProjects\bin\Dapper.xml
