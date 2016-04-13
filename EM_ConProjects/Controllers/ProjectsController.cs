@@ -32,14 +32,30 @@ namespace EM_ConProjects.Controllers
 
             DashboardView dash = new DashboardView();
 
+            dash.totalActions = db.Actions.Count();
+            dash.totalContactors = db.Contractors.Count();
+            dash.totalLocations = db.Localities.Count();
             dash.totalProjects = db.Projects.Count();
 
             //Retrieve total number of projects in the database that have the status completed
-            dash.totalProjectsComplete = con.Query("SELECT COUNT(ID) FROM Projects WHERE ProjectStatus = 'Complete'").SingleOrDefault();
+            dash.totalProjectsComplete =  con.Query<int>("SELECT COUNT(Project_Id) FROM Projects WHERE ProjectStatus = 'Complete'").SingleOrDefault();
+
+            //get completed actions
+            dash.totalActionComplete = con.Query<int>("SELECT Count(Actions_Id) FROM Actions WHERE Status = 'Complete'").SingleOrDefault();
+            //get actual site visits
+            //dash.actualSiteVisits = con.Query<int>("SELECT SUM(ActualVisits) FROM Projects").SingleOrDefault();
+            //get total site visits
+            //dash.siteVisits = con.Query<int>("SELECT SUM(SiteVisits) FROM Projects").SingleOrDefault();
+            //get recently added projects
+            //dash.projects = con.Query("").ToList();
 
             //This will be the user database count
+            //dash.locationNames = con.Query<List>("SELECT LocalityName FROM Localities").ToList();
             dash.totalUsers = 10;
-
+            dash.siteVisits = 8;
+            dash.actualSiteVisits = 2;
+            dash.totalProjects = 16;
+            dash.totalProjectsComplete = 9;
             dash.companyEfficiencyRatio = Math.Round((double)(dash.totalProjectsComplete / dash.totalProjects * 100), 2);
 
 
@@ -86,7 +102,7 @@ namespace EM_ConProjects.Controllers
 
 
 
-            return View(projectList.ToList());
+            return View(dash);
         }
         // GET: /Projects/Details/5
         public ActionResult Details(int? id)
@@ -147,7 +163,7 @@ namespace EM_ConProjects.Controllers
                 int z = projects.projectsConts.Count();
 
                 //save project instance first and obtain project id
-
+                /*
                 db.Projects.Add(projects.thisProject);
                 db.SaveChanges();
                 //get saved project id
@@ -175,9 +191,9 @@ namespace EM_ConProjects.Controllers
                     contractors.ProjectsProject_Id = projectId;
                     db.Contractors.Add(contractors);
                     db.SaveChanges();
-                }
+                }*/
 
-                return Json("Actions: " + i + " Locations: " + x + " Contracts: " + z);
+                return Json(projects);
             }
             else
             {
@@ -219,12 +235,26 @@ namespace EM_ConProjects.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ProjectsViewModel toEdit = new ProjectsViewModel();
+            
             Projects projects = db.Projects.Find(id);
             if (projects == null)
             {
                 return HttpNotFound();
             }
-            return View(projects);
+            var actionStat = new[] 
+            { 
+                new SelectListItem(){Value = "Complete", Text= "Complete"},
+                new SelectListItem(){Value = "Start", Text= "Start"},
+                new SelectListItem(){Value = "Incomplete", Text= "Incomplete"},
+            };
+
+            ViewBag.ActStat = actionStat;
+
+            ViewBag.Amount = db.Projects.Count();
+            toEdit.thisProject = projects;
+
+            return View(toEdit);
         }
 
         // POST: /Projects/Edit/5

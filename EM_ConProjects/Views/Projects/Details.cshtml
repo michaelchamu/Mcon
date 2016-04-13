@@ -1,50 +1,167 @@
 ﻿@model EM_ConProjects.Models.DataModel.Projects
 
-@{
-    ViewBag.Title = "Details";
+
+<div class="content-wrapper" style="margin-left:10px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Project summary
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Project summary</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Profile Image -->
+                <div class="box box-primary">
+                    <div class="box-body box-profile">
+                        <img class="profile-user-img img-responsive img-circle" src="~/Images/Emcon logo_CMYK.png" alt="User profile picture">
+                        <h3 class="profile-username text-center">@Html.DisplayFor(model => model.ProjectCode)</h3>
+                        <p class="text-muted text-center">@Html.DisplayFor(model => model.ProjectName)</p>
+                        <ul class="list-group list-group-unbordered">
+                            <li class="list-group-item">
+                                <b>Actions</b> <a class="pull-right">3</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Locations</b> <a class="pull-right">1</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Contractors</b> <a class="pull-right">7</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Proposed Visits</b> <a class="pull-right">@Html.DisplayFor(model => model.SiteVisits)</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Actual Visits</b> <a class="pull-right">@Html.DisplayFor(model => model.ActualVisits)</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Status</b> <a class="pull-right">Invoice</a>
+                            </li>
+
+                        </ul>
+
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+                <!-- About Me Box -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">About Project</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <strong><i class="fa fa-book margin-r-5"></i>  Start date</strong>
+                        <p class="text-muted">
+                            @Html.ValueFor(model => model.StartDate, "{0:dd/MM/yyyy}")
+                        </p>
+                        <hr>
+                        <strong><i class="fa fa-map-marker margin-r-5"></i> End date</strong>
+                        <p class="text-muted">@Html.ValueFor(model => model.EndDate, "{0:dd/MM/yyyy}")</p>
+                        <hr>
+
+
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+            <div class="col-md-9">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#activity" data-toggle="tab">Actions</a></li>
+                        <li><a href="#timeline" data-toggle="tab">Locations</a></li>
+                        <li><a href="#settings" data-toggle="tab">Contractors</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="active tab-pane" id="activity">
+                            <!-- Widget: user widget style 1 -->
+                            <div class="box box-widget widget-user-2">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header bg-black">
+
+                                    <h3 class="widget-user-username">Actions</h3>
+
+                                </div>
+                                <div class="box-footer no-padding">
+                                    <ul class="nav nav-stacked">
+                                        <li><a href="#">Action 1 <span class="pull-right badge bg-blue">Complete</span></li>
+                                        <hr>
+                                        <li><a href="#">Action 2 <span class="pull-right badge bg-red">Delayed</span></li>
+                                        <hr>
+                                        <li><a href="#">Action 3 <span class="pull-right badge bg-red">Delayed</span></a></li>
+                                        <hr>
+                                    </ul>
+                                </div>
+                            </div><!-- /.widget-user -->
+                        </div><!-- /.tab-pane -->
+                        <div class="tab-pane" id="timeline">
+                            <!-- The timeline -->
+                            <!-- Widget: user widget style 1 -->
+                            <div class="box box-widget widget-user-2">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header bg-black">
+
+                                    <h3 class="widget-user-username">Locations</h3>
+
+                                </div>
+                           
+                                <div class="box-footer no-padding">
+                                    <!-- Map will be created here -->
+                                    <div id="world-map-markers" style="height: 325px;"></div>
+
+                                </div>
+
+                                </div><!-- /.widget-user -->
+                        </div><!-- /.tab-pane -->
+                        <div class="tab-pane" id="settings">
+
+                                <!-- Widget: user widget style 1 -->
+                                <div class="box box-widget widget-user-2">
+                                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                                    <div class="widget-user-header bg-black">
+                                      
+                                        <h3 class="widget-user-username">Contractor 1</h3>
+                                       
+                                    </div>
+                                    <div class="box-footer no-padding">
+                                        <ul class="nav nav-stacked">
+                                            <li><a href="#">Company <span class="pull-right">Max Power Investments</span></a></li>
+                                            <hr>
+                                            <li><a href="#">Contact person <span class="pull-right">Erastus Shapumba</span></a></li>
+                                            <hr>
+                                            <li><a href="#">Contact telephone<span class="pull-right">+264 663696</span></a></li>
+                                            <hr>
+                                        </ul>
+                                    </div>
+                                </div><!-- /.widget-user -->
+                   
+
+                        </div><!-- /.tab-pane -->
+                    </div><!-- /.tab-content -->
+                </div><!-- /.nav-tabs-custom -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    <div class="row">
+        <p class="col-md-offset-6">
+   
+                @Html.ActionLink(" Edit", "Edit", new { id = Model.Project_Id }, new { @class = "btn btn-primary btn-flat icon ion-edit" })&nbsp;
+              
+            @Html.ActionLink("Back to List", "Index", "Projects", new { @class = "btn btn-info btn-flat icon ion-arrow-return-left" })
+        </p>
+    </div>
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+
+
+<canvas id="salesChart" hidden></canvas>
+@section scripts{
+    <script src="~/Scripts/graphs/fastclick.min.js"></script>
+    <script src="~/admin-lte/js/app.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/graphs/jquery.sparkline.min.js"></script>
+    <script src="~/Scripts/graphs/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="~/Scripts/graphs/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="~/Scripts/graphs/jquery.slimscroll.min.js"></script>
+    <script src="~/Scripts/graphs/Chart.min.js"></script>
+    <script src="~/Scripts/graphs/dashboard2.js"></script>
+    <script src="~/Scripts/graphs/demo.js"></script>
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>Projects</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectCode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProjectCode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProjectName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectStatus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProjectStatus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectLeader)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProjectLeader)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Project_Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

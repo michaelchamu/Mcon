@@ -31,6 +31,9 @@
     <NavigationProperty Name="Contractors" Relationship="Projects_DB.ContractorsProjects" FromRole="Projects" ToRole="Contractors" />
     <NavigationProperty Name="Actions" Relationship="Projects_DB.ActionsProjects" FromRole="Projects" ToRole="Actions" />
     <Property Name="SiteVisits" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" />
+    <Property Name="ActualVisits" Type="Int16" />
   </EntityType>
   <EntityType Name="Localities">
     <Key>
@@ -85,6 +88,7 @@
     <Property Name="ActionDesc" Type="String" Nullable="false" />
     <NavigationProperty Name="Project" Relationship="Projects_DB.ActionsProjects" FromRole="Actions" ToRole="Projects" />
     <Property Name="ProjectsProject_Id" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" />
   </EntityType>
   <Association Name="ActionsProjects">
     <End Type="Projects_DB.Actions" Role="Actions" Multiplicity="*" />

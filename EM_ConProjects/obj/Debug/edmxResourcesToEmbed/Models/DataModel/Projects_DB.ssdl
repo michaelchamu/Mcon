@@ -28,6 +28,9 @@
     <Property Name="ProjectStatus" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProjectLeader" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SiteVisits" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="ActualVisits" Type="smallint" Nullable="true" />
   </EntityType>
   <EntityType Name="Localities">
     <Key>
@@ -55,6 +58,7 @@
     <Property Name="Actions_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ActionDesc" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProjectsProject_Id" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="LocalitiesProjects">
     <End Role="Localities" Type="Projects_DB.Store.Localities" Multiplicity="*" />

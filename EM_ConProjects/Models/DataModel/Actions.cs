@@ -24,6 +24,8 @@ public partial class Actions
 
     public int ProjectsProject_Id { get; set; }
 
+    public string Status { get; set; }
+
 
 
     public virtual Projects Project { get; set; }
