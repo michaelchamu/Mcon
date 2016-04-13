@@ -42,6 +42,12 @@ public partial class Projects
 
     public int SiteVisits { get; set; }
 
+    public System.DateTime StartDate { get; set; }
+
+    public Nullable<System.DateTime> EndDate { get; set; }
+
+    public Nullable<short> ActualVisits { get; set; }
+
 
 
     public virtual ICollection<Localities> Localities { get; set; }

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/06/2016 20:57:17
+-- Date Created: 04/12/2016 12:53:58
 -- Generated from EDMX file: C:\Users\MaddMike\Downloads\M_con\EM_ConProjects\Models\DataModel\Projects_DB.edmx
 -- --------------------------------------------------
 
@@ -55,7 +55,10 @@ CREATE TABLE [dbo].[Projects] (
     [ProjectName] nvarchar(max)  NOT NULL,
     [ProjectStatus] nvarchar(max)  NOT NULL,
     [ProjectLeader] nvarchar(max)  NOT NULL,
-    [SiteVisits] int  NOT NULL
+    [SiteVisits] int  NOT NULL,
+    [StartDate] datetime  NOT NULL,
+    [EndDate] datetime  NULL,
+    [ActualVisits] smallint  NULL
 );
 GO
 
@@ -82,7 +85,8 @@ GO
 CREATE TABLE [dbo].[Actions] (
     [Actions_Id] int IDENTITY(1,1) NOT NULL,
     [ActionDesc] nvarchar(max)  NOT NULL,
-    [ProjectsProject_Id] int  NOT NULL
+    [ProjectsProject_Id] int  NOT NULL,
+    [Status] nvarchar(max)  NOT NULL
 );
 GO
 

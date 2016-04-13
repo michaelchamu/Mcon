@@ -33,6 +33,9 @@
     <Property Name="ProjectStatus" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProjectLeader" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SiteVisits" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="ActualVisits" Type="smallint" Nullable="true" />
   </EntityType>
   <EntityType Name="Localities">
     <Key>
@@ -60,6 +63,7 @@
     <Property Name="Actions_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ActionDesc" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProjectsProject_Id" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="LocalitiesProjects">
     <End Role="Localities" Type="Projects_DB.Store.Localities" Multiplicity="*" />
@@ -132,6 +136,9 @@
           <NavigationProperty Name="Contractors" Relationship="Projects_DB.ContractorsProjects" FromRole="Projects" ToRole="Contractors" />
           <NavigationProperty Name="Actions" Relationship="Projects_DB.ActionsProjects" FromRole="Projects" ToRole="Actions" />
           <Property Name="SiteVisits" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" />
+          <Property Name="ActualVisits" Type="Int16" />
         </EntityType>
         <EntityType Name="Localities">
           <Key>
@@ -186,6 +193,7 @@
           <Property Name="ActionDesc" Type="String" Nullable="false" />
           <NavigationProperty Name="Project" Relationship="Projects_DB.ActionsProjects" FromRole="Actions" ToRole="Projects" />
           <Property Name="ProjectsProject_Id" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="ActionsProjects">
           <End Type="Projects_DB.Actions" Role="Actions" Multiplicity="*" />
@@ -214,6 +222,9 @@
           <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
           <ScalarProperty Name="ProjectLeader" ColumnName="ProjectLeader" />
           <ScalarProperty Name="SiteVisits" ColumnName="SiteVisits" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ActualVisits" ColumnName="ActualVisits" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -244,6 +255,7 @@
           <ScalarProperty Name="Actions_Id" ColumnName="Actions_Id" />
           <ScalarProperty Name="ActionDesc" ColumnName="ActionDesc" />
           <ScalarProperty Name="ProjectsProject_Id" ColumnName="ProjectsProject_Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
