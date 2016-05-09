@@ -46,8 +46,6 @@ public partial class Projects
 
     public Nullable<System.DateTime> EndDate { get; set; }
 
-    public Nullable<short> ActualVisits { get; set; }
-
 
 
     public virtual ICollection<Localities> Localities { get; set; }

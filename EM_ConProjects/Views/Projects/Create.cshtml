@@ -162,13 +162,7 @@
                         </div>
                     </div>
                     &nbsp;
-                    &nbsp;
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.thisProject.ActualVisits, new { @class = "col-md-3 control-label" })
-                        <div class="col-md-9">
-                            @Html.TextBoxFor(model => model.thisProject.ActualVisits, new { @class = "form-control", id = "actualVisits" })    
-                         </div>
-                    </div>
+
                     &nbsp;
                     <div class="form-group">
                         @Html.LabelFor(model => model.thisProject.ProjectLeader, new { @class = "control-label col-md-3" })
@@ -383,9 +377,11 @@
             for (x = 0; x < index; x++) {
                 projectRow = 'project_' + x;
                 //populate table with location values
-                innerText += '<tr  id="' + projectRow + '"><td><center>' + locationName[x] + '</center></td>';
-                innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + projectRow + ')"><b>X</b></button></center></td></tr>';
-              
+                console.info(locationName[x])
+  
+                    innerText += '<tr  id="' + projectRow + '"><td><center>' + locationName[x] + '</center></td>';
+                    innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + projectRow + ')"><b>X</b></button></center></td></tr>';
+      
                 //document.getElementById(list[x].id).value;
             }
             
@@ -434,19 +430,22 @@
             //get values from all textboxes
             var projectRow;
             var index;
-            var innerText = '';
+            var innerText;
             if ($('#projectLocs_0__LocalityName').val() != undefined) {
                 locationName.push($('#projectLocs_0__LocalityName').val());
             }
             index = locationName.length;
+            console.info(index)
             for (x = 0; x < index; x++) {
                 projectRow = 'project_' + x;
                 //populate table with location values
-                innerText += '<tr  id="' + projectRow + '"><td><center>' + locationName[x] + '</center></td>';
-                innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + projectRow + ')"><b>X</b></button></center></td></tr>';
-            }
+
+                    innerText += '<tr  id="' + projectRow + '"><td><center>' + locationName[x] + '</center></td>';
+                    innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + projectRow + ')"><b>X</b></button></center></td></tr>';
+                
+                }
             document.getElementById("listOfLocations").innerHTML = innerText;
-            document.getElementById("projectLocs_0__LocalityName").value = '';
+            //document.getElementById("projectLocs_0__LocalityName").value = '';
         }
 
         function addCon() {
@@ -541,7 +540,6 @@
                 "projectStatus": $("#projStatus").val() ,
                 "siteVisits": $("#visits").val(),
                 "projectLeader": $("#projLeader").val(),
-                "actualVisits": $("#actualVisits").val(),
                 "startDate": $("#startdate").val(),
                 "enddate": $("#enddate").val()
             });
