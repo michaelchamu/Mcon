@@ -126,8 +126,13 @@ namespace EM_ConProjects.Controllers
             var stats = new[] 
             { 
                 new SelectListItem(){Value = "Complete", Text= "Complete"},
+                new SelectListItem(){Value = "In progress", Text="In progress"},
                 new SelectListItem(){Value = "Invoice", Text= "Invoice"},
                 new SelectListItem(){Value = "Close", Text= "Close"},
+                new SelectListItem(){Value = "Pending", Text= "Pending"},
+                new SelectListItem(){Value = "Delayed", Text="Delayed"},
+                new SelectListItem(){Value = "Due for retention", Text= "Due for retention"}
+
             };
 
             ViewBag.Stats = stats;
