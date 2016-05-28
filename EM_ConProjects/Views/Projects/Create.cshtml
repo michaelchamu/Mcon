@@ -24,25 +24,25 @@
                     <div class="box" id="leaderBox" hidden="hidden">
                         <div class="box-header with-border">
                             <center><h3 class="box-title">PROJECT LEADER</h3></center>
-                        </div>
+                </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table class="table table-responsive">
-                                <thead>
-                                    <tr>
+                        <thead>
+                            <tr>
                                         <th style="width: 10px">#</th>
                                         <th>Project Leader</th>
                                         <th>Project Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
                                         <td id="LeadNum"></td>
                                         <td id="projLead"></td>
                                         <td id="projStat"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            </tr>
+                        </tbody>
+                    </table>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -55,15 +55,15 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table class="table table-responsive">
-                                <thead>
-                                    <tr>
+                        <thead>
+                            <tr>
                                         <th style="width: 10px">#</th>
                                         <th><center><b>Town Name</b></center></th>
                                         <th><center><b>Remove</b></center></th>
-                                    </tr>
-                                </thead>
+                            </tr>
+                        </thead>
                                 <tbody id="listOfLocations"></tbody>
-                            </table>
+                    </table>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -76,25 +76,25 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table class="table table-responsive">
-                                <thead>
-                                    <tr>
+                        <thead>
+                            <tr>
                                         <th style="width: 10px">#</th>
-                                        <td>
-                                            <center><b>Company Name</b></center>
-                                        </td>
-                                        <td>
-                                            <center><b>Contact Name</b></center>
-                                        </td>
-                                        <td>
-                                            <center><b>Contact Surname</b></center>
-                                        </td>
-                                        <td>
-                                            <center><b>Contact Phone</b></center>
-                                        </td>
-                                    </tr>
-                                </thead>
+                                <td>
+                                    <center><b>Company Name</b></center>
+                                </td>
+                                <td>
+                                    <center><b>Contact Name</b></center>
+                                </td>
+                                <td>
+                                    <center><b>Contact Surname</b></center>
+                                </td>
+                                <td>
+                                    <center><b>Contact Phone</b></center>
+                                </td>
+                            </tr>
+                        </thead>
                                 <tbody id="listofcontractors"></tbody>
-                            </table>
+                    </table>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -107,25 +107,25 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table class="table table-responsive">
-                                <thead>
-                                    <tr>
+                        <thead>
+                            <tr>
                                         <th style="width: 10px">#</th>
-                                        <td>
-                                            <center><b>Description</b></center>
-                                        </td>
-                                        <td>
-                                            <center><b>Status</b></center>
-                                        </td>
-                                    </tr>
-                                </thead>
+                                <td>
+                                    <center><b>Description</b></center>
+                                </td>
+                                <td>
+                                    <center><b>Status</b></center>
+                                </td>
+                            </tr>
+                        </thead>
                                 <tbody id="listOfActions"></tbody>
-                            </table>
-                        </div>
+                    </table>
+                </div>
                         <!-- /.box-body -->
-                    </div>
+            </div>
                     <!-- /.box -->
                 </div><!-- /.box-body -->
-            </div>
+        </div>
         </div>
 
         <div class="col-md-6" id="projDet">
@@ -190,6 +190,7 @@
                         </div>
                     </div>
                     &nbsp;
+
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">Actual Visits</h5>
@@ -384,12 +385,12 @@
             @Html.TextBoxFor(m => m.projectsConts[0].ContractorName, new { @class = "form-control" })
             @Html.TextBoxFor(m => m.projectsConts[0].ContractorSurname, new { @class = "form-control" })
             @Html.TextBoxFor(m => m.projectsConts[0].ContractorTel, new { @class = "form-control" })*@
-        </div>
     </div>
+</div>
 }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/Custom/CreateProject.js"></script>
-    
+
 }

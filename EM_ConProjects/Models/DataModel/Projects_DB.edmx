@@ -35,7 +35,6 @@
     <Property Name="SiteVisits" Type="int" Nullable="false" />
     <Property Name="StartDate" Type="datetime" Nullable="false" />
     <Property Name="EndDate" Type="datetime" Nullable="true" />
-    <Property Name="ActualVisits" Type="smallint" Nullable="true" />
   </EntityType>
   <EntityType Name="Localities">
     <Key>
@@ -138,7 +137,6 @@
           <Property Name="SiteVisits" Type="Int32" Nullable="false" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" />
           <Property Name="EndDate" Type="DateTime" />
-          <Property Name="ActualVisits" Type="Int16" />
         </EntityType>
         <EntityType Name="Localities">
           <Key>
@@ -224,7 +222,6 @@
           <ScalarProperty Name="SiteVisits" ColumnName="SiteVisits" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="ActualVisits" ColumnName="ActualVisits" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

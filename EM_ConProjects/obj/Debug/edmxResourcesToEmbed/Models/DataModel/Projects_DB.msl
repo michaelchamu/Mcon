@@ -12,7 +12,6 @@
           <ScalarProperty Name="SiteVisits" ColumnName="SiteVisits" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="ActualVisits" ColumnName="ActualVisits" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

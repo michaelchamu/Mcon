@@ -33,7 +33,6 @@
     <Property Name="SiteVisits" Type="Int32" Nullable="false" />
     <Property Name="StartDate" Type="DateTime" Nullable="false" />
     <Property Name="EndDate" Type="DateTime" />
-    <Property Name="ActualVisits" Type="Int16" />
   </EntityType>
   <EntityType Name="Localities">
     <Key>
