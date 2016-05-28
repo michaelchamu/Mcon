@@ -156,76 +156,116 @@ namespace EM_ConProjects.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProjectsViewModel projects)
         {
-            if (projects != null)
+            int projectId;
+            try
             {
-                int i = projects.projectActions.Count();
-                int x = projects.projectLocs.Count();
-                int z = projects.projectsConts.Count();
+                // TODO: This is the data saving logic
 
-                //save project instance first and obtain project id
-                /*
-                db.Projects.Add(projects.thisProject);
-                db.SaveChanges();
-                //get saved project id
-                int projectId = projects.thisProject.Project_Id;
-                //populate each relation with retrieved id
-
-                //iterate through the list and save each record
-                for (int l = 0; l < x; l++)
+                //Save Project to Databse
+                try
                 {
-                    Localities locality = projects.projectLocs[l];
-                    locality.ProjectsProject_Id = projectId;
-                    db.Localities.Add(locality);
-                    db.SaveChanges();
+
+                    con.Open();
+
+                    int lastProjectId = con.Query<int>("SELECT IDENT_CURRENT( 'Projects' )").FirstOrDefault();
+
+                    DynamicParameters param = new DynamicParameters();
+                    param.Add("@projectCode", "PP-" + lastProjectId);
+                    param.Add("@projectName", projects.thisProject.ProjectName);
+                    param.Add("@projectStatus", projects.thisProject.ProjectStatus);
+                    param.Add("@projectLeader", projects.thisProject.ProjectLeader);
+                    param.Add("@projectSiteVisits", projects.thisProject.SiteVisits);
+                    param.Add("@projectStartDate", projects.thisProject.StartDate);
+                    param.Add("@projectEndDate", projects.thisProject.EndDate);
+                    param.Add("@projectActualVisits", projects.thisProject.ActualVisits);
+
+                    param.Add("@projectId", dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                    con.Execute("insertProject", param, commandType: CommandType.StoredProcedure);
+                    con.Close();
+
+                    projectId = param.Get<int>("@projectId");
+
                 }
-                for (int l = 0; l < i; l++)
+                catch (Exception ex)
                 {
-                    Actions action = projects.projectActions[l];
-                    action.ProjectsProject_Id = projectId;
-                    db.Actions.Add(action);
-                    db.SaveChanges();
+                    //Log error as per your need 
+                    throw ex;
                 }
-                for (int l = 0; l < z; l++)
+
+                //Save Localities to Database
+                try
                 {
-                    Contractors contractors = projects.projectsConts[l];
-                    contractors.ProjectsProject_Id = projectId;
-                    db.Contractors.Add(contractors);
-                    db.SaveChanges();
-                }*/
+                    foreach (var item in projects.projectLocs)
+                    {
+                        DynamicParameters param = new DynamicParameters();
+                        param.Add("@localityName", item.LocalityName);
+                        param.Add("@projectId", projectId);
+                        con.Open();
+                        con.Execute("insertLocality", param, commandType: CommandType.StoredProcedure);
+                        con.Close();
+                    }
 
-                return Json(projects);
-            }
-            else
-            {
-                return Json("Error");
-            }
-            /*
-            if (localities != null && actions != null && contractors != null && projects != null)
-            {
-                return Json("Locations: "+localities.ToString() + "\n" + "Actions: "+actions.ToString() + "\n"
-                            + "Contractors: "+contractors.ToString() + "\n" +"Projects: "+ projects.ToString());
-            }
-            else
-            {
-                return Json("Error");
-            }
-            /*if (ModelState.IsValid)
-            {
-                db.Projects.Add(projects);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                }
+                catch (Exception ex)
+                {
+                    //Log error as per your need 
+                    throw ex;
+                }
 
-            var stats = new[] 
-            { 
-                new SelectListItem(){Value = "Complete", Text= "Complete"},
-                new SelectListItem(){Value = "Invoice", Text= "Invoice"},
-                new SelectListItem(){Value = "Close", Text= "Close"},
-            };
+                //Save Contractors to Database
+                try
+                {
 
-            ViewBag.Stats = stats;
+                    foreach (var item in projects.projectsConts)
+                    {
+                        DynamicParameters param = new DynamicParameters();
+                        param.Add("@companyName", item.CompanyName);
+                        param.Add("@contractorName", item.ContractorName);
+                        param.Add("@contractorSurname", item.ContractorSurname);
+                        param.Add("@contractorTel", item.ContractorTel);
+                        param.Add("@projectId", projectId);
+                        con.Open();
+                        con.Execute("insertContractor", param, commandType: CommandType.StoredProcedure);
+                        con.Close();
+                    }
 
-            return View(projects);*/
+                }
+                catch (Exception ex)
+                {
+                    //Log error as per your need 
+                    throw ex;
+                }
+
+                //Save Actions to Database
+                try
+                {
+
+                    foreach (var item in projects.projectActions)
+                    {
+                        DynamicParameters param = new DynamicParameters();
+                        param.Add("@actionName", item.ActionDesc);
+                        param.Add("@actionStatus", item.Status);
+                        param.Add("@projectId", projectId);
+                        con.Open();
+                        con.Execute("insertAction", param, commandType: CommandType.StoredProcedure);
+                        con.Close();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    //Log error as per your need 
+                    throw ex;
+                }
+
+
+                return RedirectToAction("CreateComplaint");
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
         }
 
         // GET: /Projects/Edit/5

@@ -14,96 +14,117 @@
     <div class="row">
 
         <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <center><h1>Project Document Preview</h1></center>
-                </div>
-                <div class="panel-body">
-                    <table class="table-bordered col-md-12">
-                        <thead>
-                            <tr>
-                                <td>
-                                    <center><b>Project Leader</b></center>
-                                </td>
-                                <td>
-                                    <center><b>Project Status</b></center>
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td id="projLead">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <center><h1 class="box-title">PROJECT DOCUMENT PREVIEW</h1></center>
+                </div><!-- /.box-header -->
 
-                                </td>
-                                <td id="projStat">
+                <div class="box-body no-padding">
 
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="box" id="leaderBox" hidden="hidden">
+                        <div class="box-header with-border">
+                            <center><h3 class="box-title">PROJECT LEADER</h3></center>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Project Leader</th>
+                                        <th>Project Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="LeadNum"></td>
+                                        <td id="projLead"></td>
+                                        <td id="projStat"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
 
-                    &nbsp;
-                    &nbsp;
-                    <center><h2>Localities</h2></center>
-                    <table id="locations" class="table-bordered col-md-12">
-                        <thead>
-                            <tr>
-                                <td>
-                                    <center><b>Town Name</b></center>
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody id="listOfLocations">
-              
-                        </tbody>
-                    </table>
+                    <div class="box" id="locations">
+                        <div class="box-header with-border">
+                            <center><h3 class="box-title">LOCALITIES</h3></center>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th><center><b>Town Name</b></center></th>
+                                        <th><center><b>Remove</b></center></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listOfLocations"></tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
 
-                    &nbsp;
-                    &nbsp;
+                    <div class="box" id="contractors">
+                        <div class="box-header with-border">
+                            <center><h3 class="box-title">CONTRACTORS</h3></center>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <td>
+                                            <center><b>Company Name</b></center>
+                                        </td>
+                                        <td>
+                                            <center><b>Contact Name</b></center>
+                                        </td>
+                                        <td>
+                                            <center><b>Contact Surname</b></center>
+                                        </td>
+                                        <td>
+                                            <center><b>Contact Phone</b></center>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody id="listofcontractors"></tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
 
-                    <center><h2>Contractors</h2></center>
-                    <table id="contractors" class="table-bordered col-md-12">
-                        <thead>
-                            <tr>
-                                <td>
-                                    <center><b>Company Name</b></center>
-                                </td>
-                                <td>
-                                    <center><b>Contact Name</b></center>
-                                </td>
-                                <td>
-                                    <center><b>Contact Surname</b></center>
-                                </td>
-                                <td>
-                                    <center><b>Contact Phone</b></center>
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody id="listofcontractors">
-              
-                        </tbody>
-                    </table>
-
-                    &nbsp;
-                    &nbsp;
-
-                    <center><h2>Actions</h2></center>
-                    <table id="actions" class="table-bordered col-md-12">
-                        <thead>
-                            <tr>
-                                <td>
-                                    <center><b>Description</b></center>
-                                </td>
-                                <td>
-                                    <center><b>Status</b></center>
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody id="listOfActions">
-                            
-                        </tbody>
-                    </table>
-                </div>
+                    <div class="box" id="actions">
+                        <div class="box-header with-border">
+                            <center><h3 class="box-title">ACTIONS</h3></center>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <td>
+                                            <center><b>Description</b></center>
+                                        </td>
+                                        <td>
+                                            <center><b>Status</b></center>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody id="listOfActions"></tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div><!-- /.box-body -->
             </div>
         </div>
 
@@ -114,67 +135,78 @@
                 </div>
                 <div class="panel-body">
                     @*<div class="form-horizontal">*@
-
+                    &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(model => model.thisProject.ProjectCode, new { @class = "control-label col-md-3" })
+                        <h5 class="col-md-3">Project Name</h5>
+                        @*@Html.LabelFor(model => model.thisProject.ProjectName, new { @class = "control-label col-md-3" })*@
                         <div class="col-md-9">
-                            @Html.TextBoxFor(model => model.thisProject.ProjectCode, new { @class = "form-control", placeholder = "PP-" + (ViewBag.Amount + 1), id = "code" })
-                            @Html.ValidationMessageFor(model => model.thisProject.ProjectCode)
+                            <input class="form-control" id="projName" />
+                            @*@Html.TextBoxFor(model => model.thisProject.ProjectName, new { @class = "form-control", id = "projName" })
+                            @Html.ValidationMessageFor(model => model.thisProject.ProjectName)*@
                         </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(model => model.thisProject.ProjectName, new { @class = "control-label col-md-3" })
+                        <h5 class="col-md-3">Status</h5>
+                        @*@Html.LabelFor(m => m.thisProject.ProjectStatus, new { @class = "col-md-3 control-label" })*@
                         <div class="col-md-9">
-                            @Html.TextBoxFor(model => model.thisProject.ProjectName, new { @class = "form-control", id = "projName" })
-                            @Html.ValidationMessageFor(model => model.thisProject.ProjectName)
+                            @*@Html.DropDownListFor(n => n.thisProject.ProjectStatus, new SelectList(ViewBag.Stats, "Value", "Text"), "Please select a Status", new { @class = "form-control", id = "projStatus" })*@
+                            <select class="form-control" id="projStatus">
+                                <option value="">Please select a Status</option>
+                                <option value="Complete">Complete</option>
+                                <option value="Invoice">Invoice</option>
+                                <option value="Close">Close</option>
+                            </select>
                         </div>
                     </div>
                     &nbsp;
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.thisProject.ProjectStatus, new { @class = "col-md-3 control-label" })
-                        <div class="col-md-9">
-                            @Html.DropDownListFor(n => n.thisProject.ProjectStatus, new SelectList(ViewBag.Stats, "Value", "Text"), "Please select a Status", new { @class = "form-control", id = "projStatus" })
-                        </div>
-                    </div>
-                    &nbsp;
                     &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(m => m.thisProject.StartDate, new { @class = "col-md-3 control-label" })
+                        <h5 class="col-md-3">Start Date</h5>
+                        @*@Html.LabelFor(m => m.thisProject.StartDate, new { @class = "col-md-3 control-label" })*@
                         <div class="col-md-9">
-                             @Html.TextBoxFor(model => model.thisProject.StartDate, new { @class = "form-control datepicker", id = "startdate" })
+                            <input class="form-control datepicker" id="startdate" />
+                            @*@Html.TextBoxFor(model => model.thisProject.StartDate, new { @class = "form-control datepicker", id = "startdate" })*@
                          </div>
                     </div>
                     &nbsp;
                     &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(m => m.thisProject.EndDate, new { @class = "col-md-3 control-label" })
+                        <h5 class="col-md-3">End Date</h5>
+                        @*@Html.LabelFor(m => m.thisProject.EndDate, new { @class = "col-md-3 control-label" })*@
                         <div class="col-md-9">
-                            @Html.TextBoxFor(model => model.thisProject.EndDate, new { @class = "form-control datepicker", id = "enddate" })
+                            <input class="form-control datepicker" id="enddate" />
+                            @*@Html.TextBoxFor(model => model.thisProject.EndDate, new { @class = "form-control datepicker", id = "enddate" })*@
                         </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(model => model.thisProject.SiteVisits, new { @class = "control-label col-md-3" })
+                        <h5 class="col-md-3">Site Visits</h5>
+                        @*@Html.LabelFor(model => model.thisProject.SiteVisits, new { @class = "control-label col-md-3" })*@
                         <div class="col-md-9">
-                            @Html.TextBoxFor(model => model.thisProject.SiteVisits, new { @class = "form-control", id="visits" })
-                            @Html.ValidationMessageFor(model => model.thisProject.SiteVisits)
+                            <input class="form-control" id="visits" />
+                            @*@Html.TextBoxFor(model => model.thisProject.SiteVisits, new { @class = "form-control", id="visits" })*@
+                            @*@Html.ValidationMessageFor(model => model.thisProject.SiteVisits)*@
                         </div>
                     </div>
                     &nbsp;
                     &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(m => m.thisProject.ActualVisits, new { @class = "col-md-3 control-label" })
+                        <h5 class="col-md-3">Actual Visits</h5>
+                        @*@Html.LabelFor(m => m.thisProject.ActualVisits, new { @class = "col-md-3 control-label" })*@
                         <div class="col-md-9">
-                            @Html.TextBoxFor(model => model.thisProject.ActualVisits, new { @class = "form-control", id = "actualVisits" })    
+                            <input class="form-control" id="actualVisits" />
+                            @*@Html.TextBoxFor(model => model.thisProject.ActualVisits, new { @class = "form-control", id = "actualVisits" })*@    
                          </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(model => model.thisProject.ProjectLeader, new { @class = "control-label col-md-3" })
+                        <h5 class="col-md-3">Leader</h5>
+                        @*@Html.LabelFor(model => model.thisProject.ProjectLeader, new { @class = "control-label col-md-3" })*@
                         <div class="col-md-9">
-                            @Html.TextBoxFor(model => model.thisProject.ProjectLeader, new { @class = "form-control", id = "projLeader" })
-                            @Html.ValidationMessageFor(model => model.thisProject.ProjectLeader)
+                            <input class="form-control" id="projLeader" />
+                            @*@Html.TextBoxFor(model => model.thisProject.ProjectLeader, new { @class = "form-control", id = "projLeader" })*@
+                            @*@Html.ValidationMessageFor(model => model.thisProject.ProjectLeader)*@
                         </div>
                     </div>
                     &nbsp;
@@ -195,10 +227,12 @@
                 <div class="panel-body">
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.projectLocs[0].LocalityName, new { @class = "control-label col-md-3" })
+                        <h5 class="col-md-3">Locality Name</h5>
+                        @*@Html.LabelFor(model => model.projectLocs[0].LocalityName, new { @class = "control-label col-md-3" })*@
                         <div class="col-md-9">
-                            @Html.TextBoxFor(model => model.projectLocs[0].LocalityName, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.projectLocs[0].LocalityName)
+                            <input class="form-control" id="locName"/>
+                            @*@Html.TextBoxFor(model => model.projectLocs[0].LocalityName, new { @class = "form-control" })*@
+                            @*@Html.ValidationMessageFor(model => model.projectLocs[0].LocalityName)*@
                         </div>
                     </div>
 
@@ -231,34 +265,42 @@
                 <div class="panel-body">
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.projectsConts[0].CompanyName, "Company Name", new { @class = "control-label col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(model => model.projectsConts[0].CompanyName, new { @class = "form-control"@*, id = "code"*@ })
-                            @Html.ValidationMessageFor(model => model.projectsConts[0].CompanyName)
+                        <h5 class="col-md-3">Company Name</h5>
+                        @*@Html.LabelFor(model => model.projectsConts[0].CompanyName, "Company Name", new { @class = "control-label col-md-4" })*@
+                        <div class="col-md-9">
+                            <input class="form-control" id="compName" />
+                            @*@Html.TextBoxFor(model => model.projectsConts[0].CompanyName, new { @class = "form-control", id = "code" })*@
+                            @*@Html.ValidationMessageFor(model => model.projectsConts[0].CompanyName)*@
                         </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(model => model.projectsConts[0].ContractorName, "Contact Name", new { @class = "control-label col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(model => model.projectsConts[0].ContractorName, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.projectsConts[0].ContractorName)
+                        <h5 class="col-md-3">Name</h5>
+                        @*@Html.LabelFor(model => model.projectsConts[0].ContractorName, "Contact Name", new { @class = "control-label col-md-4" })*@
+                        <div class="col-md-9">
+                            <input class="form-control" id="contName" />
+                            @*@Html.TextBoxFor(model => model.projectsConts[0].ContractorName, new { @class = "form-control" })*@
+                            @*@Html.ValidationMessageFor(model => model.projectsConts[0].ContractorName)*@
                         </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(model => model.projectsConts[0].ContractorSurname, "Contact Surname", new { @class = "control-label col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(model => model.projectsConts[0].ContractorSurname, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.projectsConts[0].ContractorSurname)
+                        <h5 class="col-md-3">Surname</h5>
+                        @*@Html.LabelFor(model => model.projectsConts[0].ContractorSurname, "Contact Surname", new { @class = "control-label col-md-4" })*@
+                        <div class="col-md-9">
+                            <input class="form-control" id="contSurn" />
+                            @*@Html.TextBoxFor(model => model.projectsConts[0].ContractorSurname, new { @class = "form-control" })*@
+                            @*@Html.ValidationMessageFor(model => model.projectsConts[0].ContractorSurname)*@
                         </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(model => model.projectsConts[0].ContractorTel, "Contact Tel.", new { @class = "control-label col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(model => model.projectsConts[0].ContractorTel, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.projectsConts[0].ContractorTel)
+                        <h5 class="col-md-3">Tel.</h5>
+                        @*@Html.LabelFor(model => model.projectsConts[0].ContractorTel, "Contact Tel.", new { @class = "control-label col-md-4" })*@
+                        <div class="col-md-9">
+                            <input class="form-control" id="contTel" />
+                            @*@Html.TextBoxFor(model => model.projectsConts[0].ContractorTel, new { @class = "form-control" })*@
+                            @*@Html.ValidationMessageFor(model => model.projectsConts[0].ContractorTel)*@
                         </div>
                     </div>
                     
@@ -289,19 +331,23 @@
                 <div class="panel-body">
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.projectActions[0].ActionDesc, "Action Name", new { @class = "control-label col-md-4" })
+                        <h5 class="col-md-3">Action Name</h5>
+                        @*@Html.LabelFor(model => model.projectActions[0].ActionDesc, "Action Name", new { @class = "control-label col-md-4" })*@
                         <div class="col-md-7">
-                            @Html.TextBoxFor(model => model.projectActions[0].ActionDesc, new { @class = "form-control"@*, id = "code" *@})
-                            @Html.ValidationMessageFor(model => model.projectActions[0].ActionDesc)
+                            <input class="form-control" id="actName" />
+                            @*@Html.TextBoxFor(model => model.projectActions[0].ActionDesc, new { @class = "form-control", id = "code"})*@
+                            @*@Html.ValidationMessageFor(model => model.projectActions[0].ActionDesc)*@
                         </div>
                     </div>
                     <br />
                     &nbsp;
                     <div class="form-group">
-                        @Html.LabelFor(model => model.projectActions[0].Status, "Action Status", new { @class = "control-label col-md-4" })
+                        <h5 class="col-md-3">Action Status</h5>
+                        @*@Html.LabelFor(model => model.projectActions[0].Status, "Action Status", new { @class = "control-label col-md-4" })*@
                         <div class="col-md-7">
-                            @Html.TextBoxFor(model => model.projectActions[0].Status, new {@class = "form-control"})
-                            @Html.ValidationMessageFor(model => model.projectActions[0].Status)
+                            <input class="form-control" id="actStatus" />
+                            @*@Html.TextBoxFor(model => model.projectActions[0].Status, new {@class = "form-control"})*@
+                            @*@Html.ValidationMessageFor(model => model.projectActions[0].Status)*@
                         </div>
                     </div>
                     <br />
@@ -318,245 +364,32 @@
                             <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="addAction()" id="addBtn3" type="button"> ADD </button>
                         </div>
                         <div class="col-md-4">
-                            <button class="btn btn-success col-md-8 col-md-offset-2" id="actBtnSave"> SAVE </button>
+                            @*<button class="btn btn-success col-md-8 col-md-offset-2" id="actBtnSave"> SAVE </button>*@
+                            <input class="btn btn-success col-md-8 col-md-offset-2" id="actBtnSave" type="submit" value="SAVE"/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="hiddenModel" hidden="hidden">
+            @*@Html.TextBoxFor(m => m.thisProject.ProjectLeader, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.thisProject.ProjectName, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.thisProject.ProjectStatus, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.thisProject.SiteVisits, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.thisProject.ActualVisits, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.thisProject.StartDate, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.thisProject.EndDate, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.projectLocs[0].LocalityName, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.projectsConts[0].CompanyName, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.projectsConts[0].ContractorName, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.projectsConts[0].ContractorSurname, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.projectsConts[0].ContractorTel, new { @class = "form-control" })*@
+        </div>
     </div>
 }
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-
-    <script type="text/javascript">
-        var Locations = {};
-        var locationName = [], contractorName = [], contractorSurname = [], contractorTel = [],
-            contractorCompany = [], actionDesc = [], actionStatus = [], project;
-        (function worker() {
-            $.ajax({
-                success: function (data) {
-                    //get contents of action div and display
-
-                },
-                complete: function () {
-                    // Schedule the next request when the current one's complete
-                    setTimeout(worker, 3000);
-                }
-            });
-        })();
-                 
-        function resetLoc() {
-            $("#projDet").removeAttr("hidden");
-            $("#loc").attr("hidden", "hidden");
-            $("#projBtnNext").removeAttr("disabled");
-        }
-
-        function loadLoc() {
-            $("#projLead").html("<center><p> " + $("#projLeader").val() + "</p></center>");
-            $("#projStat").html("<center><p> " + $("#projStatus").val() + "</p></center>");
-            $("#projDet").attr("hidden", "hidden");
-            $("#loc").removeAttr("hidden");
-           
-            document.getElementById("projBtnNext").disabled = true;
-        }
-
-        function resetCont() {
-            $("#loc").removeAttr("hidden");
-            $("#cont").attr("hidden", "hidden");
-            $("#locBtnBack").removeAttr("disabled");
-            $("#locBtnNext").removeAttr("disabled");
-        }
-
-        function loadCont() {
-            $("#loc").attr("hidden", "hidden");
-            $("#cont").removeAttr("hidden");
-            //count number of elements in global varible
-            var index = locationName.length;
-            var x, innerText;
-         
-            var projectRow = 'project_' + Location.id;
-            for (x = 0; x < index; x++) {
-                projectRow = 'project_' + x;
-                //populate table with location values
-                innerText += '<tr  id="' + projectRow + '"><td><center>' + locationName[x] + '</center></td>';
-                innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + projectRow + ')"><b>X</b></button></center></td></tr>';
-              
-                //document.getElementById(list[x].id).value;
-            }
-            
-            document.getElementById("listOfLocations").innerHTML = innerText;
-            document.getElementById("locBtnBack").disabled = true;
-            document.getElementById("locBtnNext").disabled = true;
-        }
-
-        function resetAct() {
-            $("#cont").removeAttr("hidden");
-            $("#act").attr("hidden", "hidden");
-            $("#contBtnBack").removeAttr("disabled");
-            $("#contBtnNext").removeAttr("disabled");
-        }
-
-        function loadAct() {
-            var contractorRow, index, innerText;
-
-            if ($('#projectsConts_0__CompanyName').val() != undefined) {
-                contractorCompany.push($('#projectsConts_0__CompanyName').val());
-                contractorName.push($('#projectsConts_0__ContractorName').val());
-                contractorSurname.push($('#projectsConts_0__ContractorSurname').val());
-                contractorTel.push($('#projectsConts_0__ContractorTel').val());
-            }
-            innerText = '';
-            index = contractorName.length;
-            for (x = 0; x < index; x++) {
-                contractorRow = 'contractor_' + x;
-                //populate table with location values
-                innerText += '<tr id="' + contractorRow + '">';
-                innerText += '<td id=""><center>' + contractorCompany[x] + '</center></td>';
-                innerText += '<td id=""><center>' + contractorName[x] + '</center></td>';
-                innerText += '<td id=""><center>' + contractorSurname[x] + '</center></td>';
-                innerText += '<td id=""><center>' + contractorTel[x] + '</center></td>';
-                innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + contractorRow + ')"><b>X</b></button></center></td></tr>';
-            }
-
-            document.getElementById("listofcontractors").innerHTML = innerText;
-            $("#cont").attr("hidden", "hidden");
-            $("#act").removeAttr("hidden");
-            document.getElementById("contBtnBack").disabled = true;
-            document.getElementById("contBtnNext").disabled = true;
-        }
-
-        function addBox() {   
-            //get values from all textboxes
-            var projectRow;
-            var index;
-            var innerText = '';
-            if ($('#projectLocs_0__LocalityName').val() != undefined) {
-                locationName.push($('#projectLocs_0__LocalityName').val());
-            }
-            index = locationName.length;
-            for (x = 0; x < index; x++) {
-                projectRow = 'project_' + x;
-                //populate table with location values
-                innerText += '<tr  id="' + projectRow + '"><td><center>' + locationName[x] + '</center></td>';
-                innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + projectRow + ')"><b>X</b></button></center></td></tr>';
-            }
-            document.getElementById("listOfLocations").innerHTML = innerText;
-            document.getElementById("projectLocs_0__LocalityName").value = '';
-        }
-
-        function addCon() {
-            //get textbox values
-            var contractorRow, index, innerText;
-
-            if ($('#projectsConts_0__CompanyName').val() != undefined) {
-                contractorCompany.push($('#projectsConts_0__CompanyName').val());
-                contractorName.push($('#projectsConts_0__ContractorName').val());
-                contractorSurname.push($('#projectsConts_0__ContractorSurname').val());
-                contractorTel.push($('#projectsConts_0__ContractorTel').val());
-            }
-            innerText = '';
-            index = contractorName.length;
-            for (x = 0; x < index; x++) {
-                contractorRow = 'contractor_' + x;
-                //populate table with location values
-
-                    innerText += '<tr id="' + contractorRow + '">';
-                    innerText += '<td id=""><center>' + contractorCompany[x] + '</center></td>';
-                    innerText += '<td id=""><center>' + contractorName[x] + '</center></td>';
-                    innerText += '<td id=""><center>' + contractorSurname[x] + '</center></td>';
-                    innerText += '<td id=""><center>' + contractorTel[x] + '</center></td>';
-                    innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + contractorRow + ')"><b>X</b></button></center></td></tr>';
-
-            }
-            document.getElementById("listofcontractors").innerHTML = innerText;
-            $('#projectsConts_0__CompanyName').val('');
-            $('#projectsConts_0__ContractorName').val('');
-            $('#projectsConts_0__ContractorSurname').val('');
-            $('#projectsConts_0__ContractorTel').val('');
-        }
-
-        function addAction()
-        {
-            var actionRow, index, innerText;
-
-            actionDesc.push($('#projectActions_0__ActionDesc').val());
-            actionStatus.push($('#projectActions_0__Status').val());
-            innerText = '';
-            index = contractorName.length;
-            for (x = 0; x < index; x++) {
-                actionRow = 'action_' + x;
-                //populate table with location values
-                innerText += '<tr id="' + actionRow + '">';
-                innerText += '<td id=""><center>' + actionDesc[x] + '</center></td>';
-                innerText += '<td id=""><center>' + actionStatus[x] + '</center></td>';
-                innerText += '<td id=""><center><button class="btn-sm btn-danger" type="button" onclick="removeTextBox(' + actionRow + ')"><b>X</b></button></center></td></tr>';
-            }
-            document.getElementById("listOfActions").innerHTML = innerText;
-            $('#projectActions_0__ActionDesc').val('');
-            $('#projectActions_0__Status').val('');
-
-
-        }
-
-        function removeTextBox(id) {
-            $(id).remove();
-        }
-
-        $("#actBtnSave").click(function () {
-            var contractors = [], projectActions = [], projectList = [], localities = [], i, x, y, z;
-
-            //get actions
-            x = actionDesc.length;
-            for (i = 0; i < x; i++) {
-                projectActions.push({
-                    "ActionDesc": actionDesc[i],
-                    "Status": actionStatus[i]
-                })
-            }
-            //get contractors
-            y = contractorCompany.length;
-            for (i = 0; i < y; i++) {
-                contractors.push({
-                    "company": contractorCompany[i],
-                    "contactName": contractorName[i],
-                    "contactSurname": contractorSurname[i],
-                    "phone": contractorTel[i]});
-            }
-            //get locations
-            z = locationName.length;
-            for (i = 0; i < z; i++) {
-                localities.push({
-                    "locationName": locationName[i]
-                })
-            }
-            //projects
-            projectList.push({
-                "projectCode": $("#code").val() ,
-                "projectName": $("#projName").val(),
-                "projectStatus": $("#projStatus").val() ,
-                "siteVisits": $("#visits").val(),
-                "projectLeader": $("#projLeader").val(),
-                "actualVisits": $("#actualVisits").val(),
-                "startDate": $("#startdate").val(),
-                "enddate": $("#enddate").val()
-            });
-
-            var token = $('input[name="__RequestVerificationToken"]').val();
-            $.ajax({
-                url: "Create",
-                type: "POST",
-                data: { "__RequestVerificationToken": token, "locations": localities, "actions": projectActions, "contractors": contractors, "projects": proje },
-                    success: function (data) {
-                        console.log(data);
-                    }
-
-            })
-        })
-
-    </script>
+    <script src="~/Scripts/Custom/CreateProject.js"></script>
+    
 }
