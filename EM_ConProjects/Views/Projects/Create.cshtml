@@ -4,13 +4,13 @@
     ViewBag.Title = "Create";
 }
 
-@using(Html.BeginForm())
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    
+
     <br />
-    
+
     <div class="row">
 
         <div class="col-md-6">
@@ -24,25 +24,25 @@
                     <div class="box" id="leaderBox" hidden="hidden">
                         <div class="box-header with-border">
                             <center><h3 class="box-title">PROJECT LEADER</h3></center>
-                </div>
+                        </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table class="table table-responsive">
-                        <thead>
-                            <tr>
+                                <thead>
+                                    <tr>
                                         <th style="width: 10px">#</th>
                                         <th>Project Leader</th>
                                         <th>Project Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td id="LeadNum"></td>
                                         <td id="projLead"></td>
                                         <td id="projStat"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -55,15 +55,15 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table class="table table-responsive">
-                        <thead>
-                            <tr>
+                                <thead>
+                                    <tr>
                                         <th style="width: 10px">#</th>
                                         <th><center><b>Town Name</b></center></th>
                                         <th><center><b>Remove</b></center></th>
-                            </tr>
-                        </thead>
+                                    </tr>
+                                </thead>
                                 <tbody id="listOfLocations"></tbody>
-                    </table>
+                            </table>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -76,25 +76,25 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table class="table table-responsive">
-                        <thead>
-                            <tr>
+                                <thead>
+                                    <tr>
                                         <th style="width: 10px">#</th>
-                                <td>
-                                    <center><b>Company Name</b></center>
-                                </td>
-                                <td>
-                                    <center><b>Contact Name</b></center>
-                                </td>
-                                <td>
-                                    <center><b>Contact Surname</b></center>
-                                </td>
-                                <td>
-                                    <center><b>Contact Phone</b></center>
-                                </td>
-                            </tr>
-                        </thead>
+                                        <td>
+                                            <center><b>Company Name</b></center>
+                                        </td>
+                                        <td>
+                                            <center><b>Contact Name</b></center>
+                                        </td>
+                                        <td>
+                                            <center><b>Contact Surname</b></center>
+                                        </td>
+                                        <td>
+                                            <center><b>Contact Phone</b></center>
+                                        </td>
+                                    </tr>
+                                </thead>
                                 <tbody id="listofcontractors"></tbody>
-                    </table>
+                            </table>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -107,25 +107,25 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table class="table table-responsive">
-                        <thead>
-                            <tr>
+                                <thead>
+                                    <tr>
                                         <th style="width: 10px">#</th>
-                                <td>
-                                    <center><b>Description</b></center>
-                                </td>
-                                <td>
-                                    <center><b>Status</b></center>
-                                </td>
-                            </tr>
-                        </thead>
+                                        <td>
+                                            <center><b>Description</b></center>
+                                        </td>
+                                        <td>
+                                            <center><b>Status</b></center>
+                                        </td>
+                                    </tr>
+                                </thead>
                                 <tbody id="listOfActions"></tbody>
-                    </table>
-                </div>
+                            </table>
+                        </div>
                         <!-- /.box-body -->
-            </div>
+                    </div>
                     <!-- /.box -->
                 </div><!-- /.box-body -->
-        </div>
+            </div>
         </div>
 
         <div class="col-md-6" id="projDet">
@@ -142,7 +142,7 @@
                         <div class="col-md-9">
                             <input class="form-control" id="projName" />
                             @*@Html.TextBoxFor(model => model.thisProject.ProjectName, new { @class = "form-control", id = "projName" })
-                            @Html.ValidationMessageFor(model => model.thisProject.ProjectName)*@
+                                @Html.ValidationMessageFor(model => model.thisProject.ProjectName)*@
                         </div>
                     </div>
                     &nbsp;
@@ -167,7 +167,7 @@
                         <div class="col-md-9">
                             <input class="form-control datepicker" id="startdate" />
                             @*@Html.TextBoxFor(model => model.thisProject.StartDate, new { @class = "form-control datepicker", id = "startdate" })*@
-                         </div>
+                        </div>
                     </div>
                     &nbsp;
                     &nbsp;
@@ -197,8 +197,8 @@
                         @*@Html.LabelFor(m => m.thisProject.ActualVisits, new { @class = "col-md-3 control-label" })*@
                         <div class="col-md-9">
                             <input class="form-control" id="actualVisits" />
-                            @*@Html.TextBoxFor(model => model.thisProject.ActualVisits, new { @class = "form-control", id = "actualVisits" })*@    
-                         </div>
+                            @*@Html.TextBoxFor(model => model.thisProject.ActualVisits, new { @class = "form-control", id = "actualVisits" })*@
+                        </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
@@ -212,9 +212,9 @@
                     </div>
                     &nbsp;
                     <div class="row">
-                        <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="loadLoc()" id="projBtnNext" type="button"> NEXT </button> 
-                    </div>                    
-                                    
+                        <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="loadLoc()" id="projBtnNext" type="button"> NEXT </button>
+                    </div>
+
                     @*</div>*@
                 </div>
             </div>
@@ -231,7 +231,7 @@
                         <h5 class="col-md-3">Locality Name</h5>
                         @*@Html.LabelFor(model => model.projectLocs[0].LocalityName, new { @class = "control-label col-md-3" })*@
                         <div class="col-md-9">
-                            <input class="form-control" id="locName"/>
+                            <input class="form-control" id="locName" />
                             @*@Html.TextBoxFor(model => model.projectLocs[0].LocalityName, new { @class = "form-control" })*@
                             @*@Html.ValidationMessageFor(model => model.projectLocs[0].LocalityName)*@
                         </div>
@@ -304,7 +304,7 @@
                             @*@Html.ValidationMessageFor(model => model.projectsConts[0].ContractorTel)*@
                         </div>
                     </div>
-                    
+
                     &nbsp;
                     <div id="contractor">
 
@@ -366,7 +366,7 @@
                         </div>
                         <div class="col-md-4">
                             @*<button class="btn btn-success col-md-8 col-md-offset-2" id="actBtnSave"> SAVE </button>*@
-                            <input class="btn btn-success col-md-8 col-md-offset-2" id="actBtnSave" type="submit" value="SAVE"/>
+                            <input class="btn btn-success col-md-8 col-md-offset-2" id="actBtnSave" type="submit" value="SAVE" />
                         </div>
                     </div>
                 </div>
@@ -374,19 +374,19 @@
         </div>
         <div id="hiddenModel" hidden="hidden">
             @*@Html.TextBoxFor(m => m.thisProject.ProjectLeader, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.ProjectName, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.ProjectStatus, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.SiteVisits, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.ActualVisits, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.StartDate, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.EndDate, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.projectLocs[0].LocalityName, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.projectsConts[0].CompanyName, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.projectsConts[0].ContractorName, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.projectsConts[0].ContractorSurname, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.projectsConts[0].ContractorTel, new { @class = "form-control" })*@
+                @Html.TextBoxFor(m => m.thisProject.ProjectName, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.thisProject.ProjectStatus, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.thisProject.SiteVisits, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.thisProject.ActualVisits, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.thisProject.StartDate, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.thisProject.EndDate, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.projectLocs[0].LocalityName, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.projectsConts[0].CompanyName, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.projectsConts[0].ContractorName, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.projectsConts[0].ContractorSurname, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.projectsConts[0].ContractorTel, new { @class = "form-control" })*@
+        </div>
     </div>
-</div>
 }
 
 @section Scripts {
