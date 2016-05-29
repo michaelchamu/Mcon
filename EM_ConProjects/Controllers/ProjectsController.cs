@@ -182,7 +182,7 @@ namespace EM_ConProjects.Controllers
                     param.Add("@projectSiteVisits", projects.thisProject.SiteVisits);
                     param.Add("@projectStartDate", projects.thisProject.StartDate);
                     param.Add("@projectEndDate", projects.thisProject.EndDate);
-                    param.Add("@projectActualVisits", projects.thisProject.ActualVisits);
+                   // param.Add("@projectActualVisits", projects.thisProject.ActualVisits);
 
                     param.Add("@projectId", dbType: DbType.Int32, direction: ParameterDirection.Output);
 

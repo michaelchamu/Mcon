@@ -11,6 +11,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    width:100%;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
