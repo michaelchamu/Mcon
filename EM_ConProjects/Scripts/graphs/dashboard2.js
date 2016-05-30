@@ -2,13 +2,46 @@
   'use strict';
 
     /* this section gets all months to the current month*/
-  var currentMonth, firstMonth, months = [], x;
+  var currentMonth, firstMonth, R_months = [], x, R_projects = [], C_projects = [], C_months = [], months = [], i = 0;
   firstMonth = moment.months(0);
   currentMonth = moment().format('Do, MMMM YYYY');
   for (x = 0; x <= moment().month() ; x++)
       months.push(moment.months(x));
   $("#date").html("<strong>Projects received, Projects completed for the period " +firstMonth+ " 1st to "+ currentMonth + "</strong>");
 
+//array of count of completed projects
+  var completedProjects = $("#completedProjectsList").val();
+  var receivedProjects = $("#recievedProjects").val();
+
+  var receivedProjectsArray = JSON.parse(receivedProjects);
+  var completedProjectsArray = JSON.parse(completedProjects);
+
+  if (receivedProjectsArray.length > 0) {
+      for (i = 0; i < receivedProjectsArray.length; i++)
+      {
+          R_projects.push(receivedProjectsArray[i]['numberOfProjects']);
+          R_months.push(receivedProjectsArray[i]['month']);
+      }
+  }
+
+  if (completedProjectsArray.length > 0){
+      for (i = 0; i < completedProjects.length; i++) {
+          C_months.push(completedProjectsArray[i]['month']);
+          C_projects.push(completedProjectsArray[i]['numberOfProjects']);
+      }
+  }
+ 
+ /*
+  while (receivedProjectsArray[i]) {
+      R_projects.push(receivedProjectsArray[i]['numberOfProjects']);
+      R_months.push(receivedProjectsArray[i]['months']);
+  }
+  while (completedProjects[i]) {
+      C_months.push(completedProjects[i]['numberOfProjects']);
+      C_projects.push(completedProjects[i]['months']);
+  }
+  */
+//array of count of received projects['numberOfProjects'][
 /* ChartJS
    * -------
    * Here we will create a few charts using ChartJS
@@ -24,7 +57,7 @@
   var salesChart = new Chart(salesChartCanvas);
 
   var salesChartData = {
-    labels: months,//["January", "February", "March", "April", "May", "June", "July"],
+      labels: R_months,//["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
       {
         label: "Projects completed",
@@ -34,7 +67,7 @@
         pointStrokeColor: "#c1c7d1",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "rgb(220,220,220)",
-        data: [1, 1, 0, 2, 0, 1]
+        data: C_projects//[1, 1, 0, 2, 0, 1]
       },
       {
         label: "Projects recieved",
@@ -44,7 +77,7 @@
         pointStrokeColor: "rgba(60,141,188,1)",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "rgba(60,141,188,1)",
-        data: [7, 2, 4, 0, 0, 1]
+        data: R_projects//[7, 2, 4, 0, 0, 1]
       }
     ]
   };
@@ -132,14 +165,14 @@
     },
     markers: [
 
-      { latLng: [-22.679005, 14.531050], name: 'Swakopmund' },
-      {latLng: [-26.01721, 16.90105], name: 'Farm Sterreprag(Helmeringhausen)'},
+      { latLng: [-22.679005, 14.531050], name: 'Swakopmund' }
+     /* {latLng: [-26.01721, 16.90105], name: 'Farm Sterreprag(Helmeringhausen)'},
       {latLng: [-27.52284, 17.81388], name: 'FishRiver Canyon Roadhouse'},
       {latLng: [-20.299165, 15.173725], name: 'Damara Mopane(Khorixas)'},
       {latLng: [-21.46354, 17.84919], name: 'Hartebeestteich-Sud(Hochfeld )'},
       {latLng: [-17.98636, 23.29582], name: 'Namushasha River Lodge(Kongola)'},
       {latLng: [-22.575459, 17.073849], name: 'Olympia(Windhoek)'},
-      {latLng: [-22.780311, 18.017803], name: 'Eningu Clayhouse Lodge(Nina)'}
+      {latLng: [-22.780311, 18.017803], name: 'Eningu Clayhouse Lodge(Nina)'}*/
     ]
   });
 

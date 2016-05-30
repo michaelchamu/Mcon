@@ -1,51 +1,6 @@
 ﻿@model IEnumerable<EM_ConProjects.Models.DataModel.Projects>
 
-@*
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProjectCode)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProjectName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProjectStatus)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProjectLeader)
-                </th>
-                <th></th>
-            </tr>
-
-        @foreach (var item in Model) {
-            <tr>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.Project_Id }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.Project_Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.Project_Id })
-                </td>
-            </tr>
-        }
-
-        </table>
-*@
+\
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
@@ -79,9 +34,9 @@
                        <td> @Html.DisplayFor(modelItem => item.ProjectLeader)</td>
                         <td><span class="label label-success">@Html.DisplayFor(modelItem => item.ProjectStatus)</span></td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Project_Id }, new { @class="btn btn-flat btn-warning"})
-                            @Html.ActionLink("Details", "Details", new { id = item.Project_Id }, new {@class="btn btn-flat btn-info"})
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Project_Id }, new { @class="btn btn-flat btn-danger"})
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Project_Id }, new { @class="btn btn-flat btn-xs btn-warning"})
+                            @Html.ActionLink("Details", "Details", new { id = item.Project_Id }, new { @class = "btn btn-flat  btn-xs btn-info" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Project_Id }, new { @class = "btn btn-flat btn-xs  btn-danger" })
                         </td>
                     </tr>
 }
