@@ -16,7 +16,6 @@ CREATE PROCEDURE insertProject
 	@projectSiteVisits INT = 0,
 	@projectStartDate DATETIME, 
 	@projectEndDate DATETIME, 
-	@projectActualVisits INT = 0,
 	@projectId INT OUTPUT
 AS
 BEGIN
@@ -32,8 +31,7 @@ BEGIN
            ,[ProjectLeader]
            ,[SiteVisits]
 		   ,[StartDate]
-		   ,[EndDate]
-		   ,[ActualVisits])
+		   ,[EndDate])
      VALUES
            (@projectCode
            ,@projectName
@@ -41,8 +39,7 @@ BEGIN
            ,@projectLeader
            ,@projectSiteVisits
 		   ,@projectStartDate
-		   ,@projectEndDate
-		   ,@projectActualVisits)
+		   ,@projectEndDate)
 
 	SET @projectId = IDENT_CURRENT( 'Projects' )
 

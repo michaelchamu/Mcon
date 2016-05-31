@@ -17,10 +17,16 @@ namespace EM_ConProjects.Models
         public int totalContactors { get; set; }
         public int totalLocations { get; set; }
         public int totalActionComplete { get; set; }
-        public int actualSiteVisits { get; set; }
         public int siteVisits { get; set; }
-        public List<string> locationNames { get; set; }
+        public string locationNames { get; set; }
         public List<Projects> projects {get; set;}
-        
+        public string receivedProjects { get; set; }
+        public string completedProjects { get; set; }
+    }
+
+    public class ProjectsObject
+    {
+        public int numberOfProjects { get; set; }
+        public string month { get; set; }
     }
 }

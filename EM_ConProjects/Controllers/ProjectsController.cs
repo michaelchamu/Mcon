@@ -11,6 +11,7 @@ using EM_ConProjects.Models;
 using Dapper;
 using System.Data.SqlClient;
 using System.Configuration;
+using Newtonsoft.Json;
 
 namespace EM_ConProjects.Controllers
 {
@@ -31,7 +32,7 @@ namespace EM_ConProjects.Controllers
         {
 
             DashboardView dash = new DashboardView();
-
+           
             dash.totalActions = db.Actions.Count();
             dash.totalContactors = db.Contractors.Count();
             dash.totalLocations = db.Localities.Count();
@@ -42,23 +43,33 @@ namespace EM_ConProjects.Controllers
 
             //get completed actions
             dash.totalActionComplete = con.Query<int>("SELECT Count(Actions_Id) FROM Actions WHERE Status = 'Complete'").SingleOrDefault();
-            //get actual site visits
-            //dash.actualSiteVisits = con.Query<int>("SELECT SUM(ActualVisits) FROM Projects").SingleOrDefault();
+            
+            //get projects received grouped by month
+            List<ProjectsObject>resultProjects = con.Query<ProjectsObject>("SELECT DATENAME(Month, StartDate) AS month, Count(Project_Id)AS numberOfProjects FROM Projects WHERE ProjectStatus = 'Invoice' GROUP BY  DATENAME(Month, StartDate)").ToList();
+            dash.receivedProjects = (string)JsonConvert.SerializeObject(resultProjects);
+            
+            //get projects completed grouped by month
+            List<ProjectsObject> finishedProjects = con.Query<ProjectsObject>("SELECT DATENAME(Month, EndDate) as month, Count(Project_Id) AS numberOfProjects FROM Projects WHERE ProjectStatus = 'Complete' GROUP BY  DATENAME(Month, EndDate)").ToList();
+            dash.completedProjects = (string)JsonConvert.SerializeObject(finishedProjects);
+            
             //get total site visits
-            //dash.siteVisits = con.Query<int>("SELECT SUM(SiteVisits) FROM Projects").SingleOrDefault();
+            dash.siteVisits = con.Query<int>("SELECT SUM(SiteVisits) FROM Projects").SingleOrDefault();
             //get recently added projects
             //dash.projects = con.Query("").ToList();
 
             //This will be the user database count
-            //dash.locationNames = con.Query<List>("SELECT LocalityName FROM Localities").ToList();
+            List<Localities> locations = con.Query<Localities>("SELECT LocalityName FROM Localities").ToList();
+            dash.locationNames = (string)JsonConvert.SerializeObject(locations);
             dash.totalUsers = 10;
-            dash.siteVisits = 8;
-            dash.actualSiteVisits = 2;
-            dash.totalProjects = 16;
-            dash.totalProjectsComplete = 9;
+
+            dash.totalProjects = con.Query<int>("SELECT count (Project_Id) FROM Projects").SingleOrDefault();
+            dash.totalProjectsComplete = con.Query<int>("SELECT count (Project_Id) FROM Projects WHERE ProjectStatus = 'Complete'").SingleOrDefault();
             dash.companyEfficiencyRatio = Math.Round((double)(dash.totalProjectsComplete / dash.totalProjects * 100), 2);
-
-
+            dash.projects = con.Query<Projects>("SELECT top(4) Projects.ProjectName, Projects.ProjectStatus FROM projects ORDER BY ProjectName").ToList();
+            dash.totalActionComplete = con.Query<int>("SELECT count (Actions_Id) FROM Actions WHERE Status = 'Complete'").SingleOrDefault();
+            dash.totalActions = con.Query<int>("SELECT count (Actions_Id) FROM Actions").SingleOrDefault();
+            dash.siteVisits = con.Query<int>("SELECT sum (SiteVisits) FROM Projects").SingleOrDefault();
+            dash.totalLocations = con.Query<int>("SELECT count (Locality_Id) FROM Localities").SingleOrDefault();
             //loop through the projects
             //take project in position x of project list and add it to position x in the viewmodellist
             //take action at x in action list and add it to project position x action x
@@ -66,7 +77,7 @@ namespace EM_ConProjects.Controllers
             List<Projects> projects = db.Projects.ToList();
             List<Actions> actions = db.Actions.ToList();
             List<Contractors> contractors = db.Contractors.ToList();
-            List<Localities> locations = db.Localities.ToList();        
+            List<Localities> locationsList = db.Localities.ToList();        
    
 
             
