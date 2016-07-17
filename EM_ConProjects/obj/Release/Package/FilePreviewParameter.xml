@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="dmdmaasz6-001-site14" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Admin\\Documents\\GitHub\\Mcon\\EM_ConProjects\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Admin\\Documents\\GitHub\\Mcon\\EM_ConProjects\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="dmdmaasz6-001-site14/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Admin\\Documents\\GitHub\\Mcon\\EM_ConProjects\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="&quot;Data Source=SQL5026.myASP.NET;Initial Catalog=DB_9B09F4_emcon;User Id=DB_9B09F4_emcon_admin;Password=P@ssw0rd;&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Admin\\Documents\\GitHub\\Mcon\\EM_ConProjects\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="Projects_DBContainer-Web.config Connection String" description="" value="metadata=res://*/Models.DataModel.Projects_DB.csdl|res://*/Models.DataModel.Projects_DB.ssdl|res://*/Models.DataModel.Projects_DB.msl;provider=System.Data.SqlClient;provider connection string='&quot;Data Source=SQL5026.myASP.NET;Initial Catalog=DB_9B09F4_emcon;User Id=DB_9B09F4_emcon_admin;Password=P@ssw0rd;&quot;'" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Admin\\Documents\\GitHub\\Mcon\\EM_ConProjects\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Projects_DBContainer']/@connectionString" />
+  </parameter>
+</parameters>

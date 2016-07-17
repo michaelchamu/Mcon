@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Projects_DB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Projects_DBContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Projects" EntityType="Projects_DB.Projects" />
+    <EntitySet Name="Localities" EntityType="Projects_DB.Localities" />
+    <EntitySet Name="Contractors" EntityType="Projects_DB.Contractors" />
+    <AssociationSet Name="LocalitiesProjects" Association="Projects_DB.LocalitiesProjects">
+      <End Role="Localities" EntitySet="Localities" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="ContractorsProjects" Association="Projects_DB.ContractorsProjects">
+      <End Role="Contractors" EntitySet="Contractors" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <EntitySet Name="Actions" EntityType="Projects_DB.Actions" />
+    <AssociationSet Name="ActionsProjects" Association="Projects_DB.ActionsProjects">
+      <End Role="Actions" EntitySet="Actions" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="Project_Id" />
+    </Key>
+    <Property Name="Project_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectCode" Type="String" Nullable="false" />
+    <Property Name="ProjectName" Type="String" Nullable="false" />
+    <Property Name="ProjectStatus" Type="String" Nullable="false" />
+    <Property Name="ProjectLeader" Type="String" Nullable="false" />
+    <NavigationProperty Name="Localities" Relationship="Projects_DB.LocalitiesProjects" FromRole="Projects" ToRole="Localities" />
+    <NavigationProperty Name="Contractors" Relationship="Projects_DB.ContractorsProjects" FromRole="Projects" ToRole="Contractors" />
+    <NavigationProperty Name="Actions" Relationship="Projects_DB.ActionsProjects" FromRole="Projects" ToRole="Actions" />
+    <Property Name="SiteVisits" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Localities">
+    <Key>
+      <PropertyRef Name="Locality_Id" />
+    </Key>
+    <Property Name="Locality_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocalityName" Type="String" Nullable="false" />
+    <NavigationProperty Name="Project" Relationship="Projects_DB.LocalitiesProjects" FromRole="Localities" ToRole="Projects" />
+    <Property Name="ProjectsProject_Id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contractors">
+    <Key>
+      <PropertyRef Name="Contractor_Id" />
+    </Key>
+    <Property Name="Contractor_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" />
+    <Property Name="ContractorName" Type="String" Nullable="false" />
+    <NavigationProperty Name="Project" Relationship="Projects_DB.ContractorsProjects" FromRole="Contractors" ToRole="Projects" />
+    <Property Name="ContractorSurname" Type="String" Nullable="false" />
+    <Property Name="ContractorTel" Type="String" Nullable="false" />
+    <Property Name="ProjectsProject_Id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="LocalitiesProjects">
+    <End Type="Projects_DB.Localities" Role="Localities" Multiplicity="*" />
+    <End Type="Projects_DB.Projects" Role="Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Localities">
+        <PropertyRef Name="ProjectsProject_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractorsProjects">
+    <End Type="Projects_DB.Contractors" Role="Contractors" Multiplicity="*" />
+    <End Type="Projects_DB.Projects" Role="Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Contractors">
+        <PropertyRef Name="ProjectsProject_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Actions">
+    <Key>
+      <PropertyRef Name="Actions_Id" />
+    </Key>
+    <Property Name="Actions_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionDesc" Type="String" Nullable="false" />
+    <NavigationProperty Name="Project" Relationship="Projects_DB.ActionsProjects" FromRole="Actions" ToRole="Projects" />
+    <Property Name="ProjectsProject_Id" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" />
+  </EntityType>
+  <Association Name="ActionsProjects">
+    <End Type="Projects_DB.Actions" Role="Actions" Multiplicity="*" />
+    <End Type="Projects_DB.Projects" Role="Projects" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Actions">
+        <PropertyRef Name="ProjectsProject_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

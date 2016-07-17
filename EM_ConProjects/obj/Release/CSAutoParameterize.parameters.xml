@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-EM_ConProjects-20160207093155.mdf;Initial Catalog=aspnet-EM_ConProjects-20160207093155;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Admin\\Documents\\GitHub\\Mcon\\EM_ConProjects\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="Projects_DBContainer-Web.config Connection String" description="Projects_DBContainer Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.DataModel.Projects_DB.csdl|res://*/Models.DataModel.Projects_DB.ssdl|res://*/Models.DataModel.Projects_DB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDb)\v11.0;attachdbfilename=|DataDirectory|\aspnet-EM_ConProjects-20160207093155.mdf;initial catalog=aspnet-EM_ConProjects-20160207093155;integrated security=True;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Admin\\Documents\\GitHub\\Mcon\\EM_ConProjects\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Projects_DBContainer']/@connectionString" />
+  </parameter>
+</parameters>

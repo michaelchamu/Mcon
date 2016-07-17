@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Projects_DBStoreContainer" CdmEntityContainer="Projects_DBContainer">
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="IsTypeOf(Projects_DB.Projects)">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="Project_Id" ColumnName="Project_Id" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="ProjectLeader" ColumnName="ProjectLeader" />
+          <ScalarProperty Name="SiteVisits" ColumnName="SiteVisits" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Localities">
+      <EntityTypeMapping TypeName="IsTypeOf(Projects_DB.Localities)">
+        <MappingFragment StoreEntitySet="Localities">
+          <ScalarProperty Name="Locality_Id" ColumnName="Locality_Id" />
+          <ScalarProperty Name="LocalityName" ColumnName="LocalityName" />
+          <ScalarProperty Name="ProjectsProject_Id" ColumnName="ProjectsProject_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contractors">
+      <EntityTypeMapping TypeName="IsTypeOf(Projects_DB.Contractors)">
+        <MappingFragment StoreEntitySet="Contractors">
+          <ScalarProperty Name="Contractor_Id" ColumnName="Contractor_Id" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ContractorName" ColumnName="ContractorName" />
+          <ScalarProperty Name="ContractorSurname" ColumnName="ContractorSurname" />
+          <ScalarProperty Name="ContractorTel" ColumnName="ContractorTel" />
+          <ScalarProperty Name="ProjectsProject_Id" ColumnName="ProjectsProject_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actions">
+      <EntityTypeMapping TypeName="IsTypeOf(Projects_DB.Actions)">
+        <MappingFragment StoreEntitySet="Actions">
+          <ScalarProperty Name="Actions_Id" ColumnName="Actions_Id" />
+          <ScalarProperty Name="ActionDesc" ColumnName="ActionDesc" />
+          <ScalarProperty Name="ProjectsProject_Id" ColumnName="ProjectsProject_Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
