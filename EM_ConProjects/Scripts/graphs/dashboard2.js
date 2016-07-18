@@ -1,5 +1,8 @@
 
-  'use strict';
+'use strict';
+$(document).ready(function () {
+    $("#time").html((moment().format('Do-MMMM-YYYY')))
+})
 
     /* this section gets all months to the current month*/
   var currentMonth, firstMonth, R_months = [], x, R_projects = [], C_projects = [], C_months = [], months = [], i = 0;

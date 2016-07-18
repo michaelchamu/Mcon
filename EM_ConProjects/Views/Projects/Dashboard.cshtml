@@ -185,7 +185,7 @@
                                     <i class="icon ion-hammer icon-md icon-color2"></i>
                                 </div>
                                 <div class="product-info">
-                                    <a href="javascript::;" class="product-title">&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.ProjectName)<span class="label label-danger pull-right">@Html.DisplayFor(modelItem => item.ProjectStatus)</span></a>
+                                    @Html.ActionLink(@Html.DisplayFor(modelItem => item.ProjectName).ToString(), "Details", new { id = item.Project_Id })<span class="label label-danger pull-right">@Html.DisplayFor(modelItem => item.ProjectStatus)</span>
                                     <span class="product-description">
                                        
                                     </span>
