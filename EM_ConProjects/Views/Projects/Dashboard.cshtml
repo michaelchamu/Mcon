@@ -3,9 +3,6 @@
 
 @Html.HiddenFor(modelItem => modelItem.completedProjects, new { @id = "completedProjectsList"})
 
-    @* @Html.DisplayFor(modelItem => modelItem.companyEfficiencyRatio)
-    @Html.DisplayFor(modelItem => modelItem.totalUsers)
-    @Html.DisplayFor(modelItem => modelItem.companyEfficiencyRatio)*@
  <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper" style="margin-left:10px;">
     <!-- Content Header (Page header) -->
@@ -184,7 +181,8 @@
                         <ul class="products-list product-list-in-box">
                             <li class="item">
                                 <div class="product-img">
-                                    <img src="~/Images/Emcon logo_CMYK.png" alt="Product Image">
+                                    @*<img src="~/Images/Emcon logo_CMYK.png" alt="Product Image">*@
+                                    <i class="icon ion-hammer icon-md icon-color2"></i>
                                 </div>
                                 <div class="product-info">
                                     <a href="javascript::;" class="product-title">&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.ProjectName)<span class="label label-danger pull-right">@Html.DisplayFor(modelItem => item.ProjectStatus)</span></a>
