@@ -124,7 +124,7 @@
                     <div class="form-group">
                         @Html.LabelFor(m => m.thisProject.ProjectStatus, new { @class = "col-md-3 control-label" })
                         <div class="col-md-9">
-                            @Html.DropDownListFor(n => n.thisProject.ProjectStatus, new SelectList(ViewBag.Stats, "Value", "Text"), "Please select a Status", new { @class = "form-control", id = "projStatus" })
+                            @Html.DropDownListFor(n => n.thisProject.ProjectStatus, new SelectList(ViewBag.ActStat, "Value", "Text"), "Please select a Status", new { @class = "form-control", id = "projStatus" })
                         </div>
                     </div>
                     &nbsp;
@@ -147,18 +147,21 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.thisProject.SiteVisits, new { @class = "control-label col-md-3" })
                         <div class="col-md-9">
-                            @Html.TextBoxFor(model => model.thisProject.SiteVisits, new { @class = "form-control", id = "visits" })
+                            <div class="input-group">
+                            @Html.TextBoxFor(model => model.thisProject.SiteVisits, new { @class = "form-control input-number", id = "visits", min = "0", name = "quant[2]" })
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </span>
+                              </div>
                             @Html.ValidationMessageFor(model => model.thisProject.SiteVisits)
+
                         </div>
                     </div>
                     &nbsp;
                     &nbsp;
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.thisProject.ActualVisits, new { @class = "col-md-3 control-label" })
-                        <div class="col-md-9">
-                            @Html.TextBoxFor(model => model.thisProject.ActualVisits, new { @class = "form-control", id = "actualVisits" })
-                        </div>
-                    </div>
+         
                     &nbsp;
                     <div class="form-group">
                         @Html.LabelFor(model => model.thisProject.ProjectLeader, new { @class = "control-label col-md-3" })
@@ -551,6 +554,63 @@
 
             })
         })
+        //plugin bootstrap minus and plus
+        //http://jsfiddle.net/laelitenetwork/puJ6G/
+        $('.btn-number').click(function (e) {
+            e.preventDefault();
 
+            fieldName = $(this).attr('data-field');
+            type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentVal = parseInt($("#visits").val());
+            if (isNaN(currentVal))
+            {
+                currentVal = 0;
+            }
+            if (!isNaN(currentVal)) {
+                    $("#visits").val(currentVal + 1).change();
+            } else {
+                input.val(0);
+            }
+        });
+        $('.input-number').focusin(function () {
+            $(this).data('oldValue', $(this).val());
+        });
+        $('.input-number').change(function () {
+
+            minValue = parseInt($(this).attr('min'));
+         
+           // maxValue = parseInt($(this).attr('max'));
+            valueCurrent = parseInt($(this).val());
+
+            name = $(this).attr('name');
+            if (valueCurrent >= minValue) {
+                $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                $(this).val($(this).data('oldValue'));
+            }
+            if (valueCurrent <= maxValue) {
+                $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                $(this).val($(this).data('oldValue'));
+            }
+
+
+        });
+        $(".input-number").keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                // Allow: Ctrl+A
+                (e.keyCode == 65 && e.ctrlKey === true) ||
+                // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
     </script>
 }
