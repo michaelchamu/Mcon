@@ -24,7 +24,8 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-aqua"><i class="ion ion-wrench"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Projects</span>
+                        <span class="info-box-text">@Html.ActionLink("Projects", "Index")
+</span>
                         <span class="info-box-number">@Html.DisplayFor(modelItem => modelItem.totalProjects)</span>
                     </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
@@ -33,7 +34,7 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-red"><i class="ion ion-stats-bars"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Actions</span>
+                        <span class="info-box-text">@Html.ActionLink("Projects", "Actions")</span>
                         <span class="info-box-number">@Html.DisplayFor(modelItem => modelItem.totalActions)</span>
                     </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
@@ -44,7 +45,7 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="ion ion-person-stalker"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Contractors</span>
+                        <span class="info-box-text">@Html.ActionLink("Projects", "Contractors")</span>
                         <span class="info-box-number">@Html.DisplayFor(modelItem => modelItem.totalContactors)</span>
                     </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
@@ -53,7 +54,7 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-yellow"><i class="ion ion-map"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Locations </span>
+                        <span class="info-box-text">@Html.ActionLink("Projects", "Locations") </span>
                         <span class="info-box-number">@Html.DisplayFor(modelItem => modelItem.totalLocations)</span>
                     </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->

@@ -302,7 +302,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.projectActions[0].Status, "Action Status", new { @class = "control-label col-md-4" })
                         <div class="col-md-7">
-                            @Html.TextBoxFor(model => model.projectActions[0].Status, new { @class = "form-control" })
+                         @Html.DropDownListFor(model => model.projectActions[0].Status, new SelectList(ViewBag.ActStat, "Value", "Text"), "Please select a Status", new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.projectActions[0].Status)
                         </div>
                     </div>

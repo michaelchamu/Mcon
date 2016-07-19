@@ -1,0 +1,57 @@
+﻿@model IEnumerable<EM_ConProjects.Models.DataModel.Contractors>
+
+@{
+    ViewBag.Title = "Contractors";
+}
+
+<h2>Contractors</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContractorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContractorSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContractorTel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.ProjectCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractorSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractorTel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.ProjectCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Contractor_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Contractor_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Contractor_Id })
+        </td>
+    </tr>
+}
+
+</table>

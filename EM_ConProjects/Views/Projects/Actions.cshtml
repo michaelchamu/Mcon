@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EM_ConProjects.Models.DataModel.Actions>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Project actions list</h3>
+                <div class="box-tools">
+                    <div class="input-group" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.box-header -->
+        </div>
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+                <tr>
+                    <th>
+                        Action Description
+                    </th>
+                    <th>
+                        Project name
+                    </th>
+
+                    <th>
+                        Action status
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActionDesc)
+                        </td>
+                      
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project.ProjectName)
+                        </td>
+                        <td>
+                            <span class="label label-success">@Html.DisplayFor(modelItem => item.Status)</span>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Actions_Id }, new { @class = "btn btn-flat btn-xs btn-warning" })
+                            @Html.ActionLink("Details", "Details", new { id = item.Actions_Id }, new { @class = "btn btn-flat  btn-xs btn-info" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Actions_Id }, new { @class = "btn btn-flat btn-xs  btn-danger" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+        </div>
+    </div>

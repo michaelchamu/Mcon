@@ -22,6 +22,16 @@ namespace EM_ConProjects.Controllers
         //This declares the variable that Dapper will use to acces the database.
         private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
+        // GET: /Contactors/
+        public ActionResult Contractors() 
+        {
+            return View(db.Contractors.ToList());
+        }
+        // GET: /Actions/
+        public ActionResult Actions() 
+        {
+            return View(db.Actions.ToList());
+        }
         // GET: /Projects/
         public ActionResult Index()
         {
@@ -147,8 +157,8 @@ namespace EM_ConProjects.Controllers
             var actionStat = new[] 
             { 
                 new SelectListItem(){Value = "Complete", Text= "Complete"},
-                new SelectListItem(){Value = "Start", Text= "Start"},
-                new SelectListItem(){Value = "Incomplete", Text= "Incomplete"},
+                new SelectListItem(){Value = "Active", Text= "Active"},
+                new SelectListItem(){Value = "On hold", Text= "On hold"}
             };
 
             ViewBag.ActStat = actionStat;
@@ -294,11 +304,12 @@ namespace EM_ConProjects.Controllers
             {
                 return HttpNotFound();
             }
+
             var actionStat = new[] 
             { 
                 new SelectListItem(){Value = "Complete", Text= "Complete"},
-                new SelectListItem(){Value = "Start", Text= "Start"},
-                new SelectListItem(){Value = "Incomplete", Text= "Incomplete"},
+                new SelectListItem(){Value = "Active", Text= "Active"},
+                new SelectListItem(){Value = "On hold", Text= "On hold"}
             };
 
             ViewBag.ActStat = actionStat;
