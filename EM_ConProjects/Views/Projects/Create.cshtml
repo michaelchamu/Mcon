@@ -138,20 +138,15 @@
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">Project Name</h5>
-                        @*@Html.LabelFor(model => model.thisProject.ProjectName, new { @class = "control-label col-md-3" })*@
-                        <div class="col-md-9">
+                       <div class="col-md-9">
                             <input class="form-control" id="projName" />
-                            @*@Html.TextBoxFor(model => model.thisProject.ProjectName, new { @class = "form-control", id = "projName" })
-                            @Html.ValidationMessageFor(model => model.thisProject.ProjectName)*@
-                        </div>
+                     </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">Status</h5>
-                        @*@Html.LabelFor(m => m.thisProject.ProjectStatus, new { @class = "col-md-3 control-label" })*@
-                        <div class="col-md-9">
-                            @*@Html.DropDownListFor(n => n.thisProject.ProjectStatus, new SelectList(ViewBag.Stats, "Value", "Text"), "Please select a Status", new { @class = "form-control", id = "projStatus" })*@
-                            <select class="form-control" id="projStatus">
+                     <div class="col-md-9">
+                          <select class="form-control" id="projStatus">
                                 <option value="">Please select a Status</option>
                                 <option value="Complete">Complete</option>
                                 <option value="Invoice">Invoice</option>
@@ -163,43 +158,33 @@
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">Start Date</h5>
-                        @*@Html.LabelFor(m => m.thisProject.StartDate, new { @class = "col-md-3 control-label" })*@
-                        <div class="col-md-9">
+                      <div class="col-md-9">
                             <input class="form-control datepicker" id="startdate" />
-                            @*@Html.TextBoxFor(model => model.thisProject.StartDate, new { @class = "form-control datepicker", id = "startdate" })*@
-                         </div>
+                     </div>
                     </div>
                     &nbsp;
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">End Date</h5>
-                        @*@Html.LabelFor(m => m.thisProject.EndDate, new { @class = "col-md-3 control-label" })*@
-                        <div class="col-md-9">
+                   <div class="col-md-9">
                             <input class="form-control datepicker" id="enddate" />
-                            @*@Html.TextBoxFor(model => model.thisProject.EndDate, new { @class = "form-control datepicker", id = "enddate" })*@
-                        </div>
+                     </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">Site Visits</h5>
-                        @*@Html.LabelFor(model => model.thisProject.SiteVisits, new { @class = "control-label col-md-3" })*@
-                        <div class="col-md-9">
+                      <div class="col-md-9">
                             <input class="form-control" id="visits" />
-                            @*@Html.TextBoxFor(model => model.thisProject.SiteVisits, new { @class = "form-control", id="visits" })*@
-                            @*@Html.ValidationMessageFor(model => model.thisProject.SiteVisits)*@
-                        </div>
+                      </div>
                     </div>
                     &nbsp;
 
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">Leader</h5>
-                        @*@Html.LabelFor(model => model.thisProject.ProjectLeader, new { @class = "control-label col-md-3" })*@
-                        <div class="col-md-9">
+                    <div class="col-md-9">
                             <input class="form-control" id="projLeader" />
-                            @*@Html.TextBoxFor(model => model.thisProject.ProjectLeader, new { @class = "form-control", id = "projLeader" })*@
-                            @*@Html.ValidationMessageFor(model => model.thisProject.ProjectLeader)*@
-                        </div>
+                     </div>
                     </div>
                     &nbsp;
                     <div class="row">
@@ -219,12 +204,10 @@
                 <div class="panel-body">
 
                     <div class="form-group">
-                        <h5 class="col-md-3">Locality Name</h5>
-                        @*@Html.LabelFor(model => model.projectLocs[0].LocalityName, new { @class = "control-label col-md-3" })*@
-                        <div class="col-md-9">
-                            <input class="form-control" id="locName"/>
-                            @*@Html.TextBoxFor(model => model.projectLocs[0].LocalityName, new { @class = "form-control" })*@
-                            @*@Html.ValidationMessageFor(model => model.projectLocs[0].LocalityName)*@
+                        <h5 class="col-md-3">Locality Name</h5><div class="col-md-9">
+                            <input class="form-control" id="locName"/><br />
+                             <div id="dvMap" style="height:300px; width:100%">
+                             </div>
                         </div>
                     </div>
 
@@ -258,41 +241,29 @@
 
                     <div class="form-group">
                         <h5 class="col-md-3">Company Name</h5>
-                        @*@Html.LabelFor(model => model.projectsConts[0].CompanyName, "Company Name", new { @class = "control-label col-md-4" })*@
-                        <div class="col-md-9">
+                       <div class="col-md-9">
                             <input class="form-control" id="compName" />
-                            @*@Html.TextBoxFor(model => model.projectsConts[0].CompanyName, new { @class = "form-control", id = "code" })*@
-                            @*@Html.ValidationMessageFor(model => model.projectsConts[0].CompanyName)*@
-                        </div>
+                       </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">Name</h5>
-                        @*@Html.LabelFor(model => model.projectsConts[0].ContractorName, "Contact Name", new { @class = "control-label col-md-4" })*@
-                        <div class="col-md-9">
+                       <div class="col-md-9">
                             <input class="form-control" id="contName" />
-                            @*@Html.TextBoxFor(model => model.projectsConts[0].ContractorName, new { @class = "form-control" })*@
-                            @*@Html.ValidationMessageFor(model => model.projectsConts[0].ContractorName)*@
-                        </div>
+                       </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">Surname</h5>
-                        @*@Html.LabelFor(model => model.projectsConts[0].ContractorSurname, "Contact Surname", new { @class = "control-label col-md-4" })*@
-                        <div class="col-md-9">
+                       <div class="col-md-9">
                             <input class="form-control" id="contSurn" />
-                            @*@Html.TextBoxFor(model => model.projectsConts[0].ContractorSurname, new { @class = "form-control" })*@
-                            @*@Html.ValidationMessageFor(model => model.projectsConts[0].ContractorSurname)*@
-                        </div>
+                       </div>
                     </div>
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">Tel.</h5>
-                        @*@Html.LabelFor(model => model.projectsConts[0].ContractorTel, "Contact Tel.", new { @class = "control-label col-md-4" })*@
-                        <div class="col-md-9">
+                     <div class="col-md-9">
                             <input class="form-control" id="contTel" />
-                            @*@Html.TextBoxFor(model => model.projectsConts[0].ContractorTel, new { @class = "form-control" })*@
-                            @*@Html.ValidationMessageFor(model => model.projectsConts[0].ContractorTel)*@
                         </div>
                     </div>
                     
@@ -324,22 +295,16 @@
 
                     <div class="form-group">
                         <h5 class="col-md-3">Action Name</h5>
-                        @*@Html.LabelFor(model => model.projectActions[0].ActionDesc, "Action Name", new { @class = "control-label col-md-4" })*@
-                        <div class="col-md-7">
+                      <div class="col-md-7">
                             <input class="form-control" id="actName" />
-                            @*@Html.TextBoxFor(model => model.projectActions[0].ActionDesc, new { @class = "form-control", id = "code"})*@
-                            @*@Html.ValidationMessageFor(model => model.projectActions[0].ActionDesc)*@
-                        </div>
+                      </div>
                     </div>
                     <br />
                     &nbsp;
                     <div class="form-group">
                         <h5 class="col-md-3">Action Status</h5>
-                        @*@Html.LabelFor(model => model.projectActions[0].Status, "Action Status", new { @class = "control-label col-md-4" })*@
-                        <div class="col-md-7">
+                       <div class="col-md-7">
                             <input class="form-control" id="actStatus" />
-                            @*@Html.TextBoxFor(model => model.projectActions[0].Status, new {@class = "form-control"})*@
-                            @*@Html.ValidationMessageFor(model => model.projectActions[0].Status)*@
                         </div>
                     </div>
                     <br />
@@ -356,26 +321,14 @@
                             <button class="btn btn-primary col-md-8 col-md-offset-2" onclick="addAction()" id="addBtn3" type="button"> ADD </button>
                         </div>
                         <div class="col-md-4">
-                            @*<button class="btn btn-success col-md-8 col-md-offset-2" id="actBtnSave"> SAVE </button>*@
-                            <input class="btn btn-success col-md-8 col-md-offset-2" id="actBtnSave" type="submit" value="SAVE"/>
+                          <input class="btn btn-success col-md-8 col-md-offset-2" id="actBtnSave" type="submit" value="SAVE"/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div id="hiddenModel" hidden="hidden">
-            @*@Html.TextBoxFor(m => m.thisProject.ProjectLeader, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.ProjectName, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.ProjectStatus, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.SiteVisits, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.ActualVisits, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.StartDate, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.thisProject.EndDate, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.projectLocs[0].LocalityName, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.projectsConts[0].CompanyName, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.projectsConts[0].ContractorName, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.projectsConts[0].ContractorSurname, new { @class = "form-control" })
-            @Html.TextBoxFor(m => m.projectsConts[0].ContractorTel, new { @class = "form-control" })*@
+     
     </div>
 </div>
 }
@@ -384,5 +337,22 @@
     @Scripts.Render("~/bundles/jqueryval")
     
     <script src="@Url.Content("/Scripts/Custom/CreateProject.js")"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD_-ZSvBzBEPvreHOiijrKxPgd8pOPyyeY"></script>
+
+<script type="text/javascript">
+        var mapOptions = {
+            center: new google.maps.LatLng(22.5609, 17.0658),
+            zoom: 14,
+            mapTypeId: google.maps.MapTypeId.TERRAIN
+        };
+       // var infoWindow = new google.maps.InfoWindow();
+        var latlngbounds = new google.maps.LatLngBounds();
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+        google.maps.event.addListener(map, 'click', function (e) {
+            //alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+        });
+        google.maps.event.trigger(map, 'resize');
+ 
+</script>
 
 }
