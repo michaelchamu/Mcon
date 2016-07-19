@@ -1,57 +1,68 @@
 ﻿@model IEnumerable<EM_ConProjects.Models.DataModel.Contractors>
 
-@{
-    ViewBag.Title = "Contractors";
-}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Contractors Address book</h3>
+                <div class="box-tools">
+                    <div class="input-group" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.box-header -->
+        </div>
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+                <tr>
+                    <th>
+                       Company
+                    </th>
+                    <th>
+                        Contact person name
+                    </th>
+                    <th>
+                       Contact person surname
+                    </th>
+                    <th>
+                        Contact phone
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Project.ProjectName)
+                    </th>
+                    <th></th>
+                </tr>
 
-<h2>Contractors</h2>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CompanyName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContractorName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContractorSurname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContractorTel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project.ProjectCode)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Contractor_Id }, new { @class = "btn btn-flat btn-xs btn-warning" })
+                            @Html.ActionLink("Details", "Details", new { id = item.Contractor_Id }, new { @class = "btn btn-flat  btn-xs btn-info" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Contractor_Id }, new { @class = "btn btn-flat btn-xs  btn-danger" })
+                        </td>
+                    </tr>
+                }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContractorName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContractorSurname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContractorTel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Project.ProjectCode)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContractorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContractorSurname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContractorTel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Project.ProjectCode)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Contractor_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Contractor_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Contractor_Id })
-        </td>
-    </tr>
-}
-
-</table>
+            </table>
+        </div>
+    </div>
+</div>
