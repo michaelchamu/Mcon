@@ -148,6 +148,11 @@
                         @Html.LabelFor(model => model.thisProject.SiteVisits, new { @class = "control-label col-md-3" })
                         <div class="col-md-9">
                             <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="quant[2]">
+                                        <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                </span>
                             @Html.TextBoxFor(model => model.thisProject.SiteVisits, new { @class = "form-control input-number", id = "visits", min = "0", name = "quant[2]" })
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
@@ -568,9 +573,22 @@
                 currentVal = 0;
             }
             if (!isNaN(currentVal)) {
+                if (type == 'plus') {
+
                     $("#visits").val(currentVal + 1).change();
+            }
+            else if(type == 'minus') {
+            
+                if(currentVal > 0) {
+                    $("#visits").val(currentVal - 1).change();
+                } 
+                if(parseInt(input.val()) == 0) {
+                    $(this).attr('disabled', true);
+                }
+
+            }
             } else {
-                input.val(0);
+                $("#visits").val(0);
             }
         });
         $('.input-number').focusin(function () {
@@ -580,7 +598,7 @@
 
             minValue = parseInt($(this).attr('min'));
          
-           // maxValue = parseInt($(this).attr('max'));
+            maxValue = 1000;//parseInt($(this).attr('max'));
             valueCurrent = parseInt($(this).val());
 
             name = $(this).attr('name');
