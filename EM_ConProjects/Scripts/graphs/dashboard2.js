@@ -1,7 +1,11 @@
 
 'use strict';
+var locations;
 $(document).ready(function () {
     $("#time").html((moment().format('Do-MMMM-YYYY')))
+    $.get('/Projects/Locations', null, function (data, textStatus) {
+        renderMap(data);
+    }, "json");
 })
 
     /* this section gets all months to the current month*/
@@ -135,50 +139,59 @@ $(document).ready(function () {
    * ------------
    * Create a world map with markers
    */
-  $('#world-map-markers').vectorMap({
-      map: 'africa_mill',
-    normalizeFunction: 'polynomial',
-    hoverOpacity: 0.7,
-    focusOn: 'NA',
-    hoverColor: false,
-    backgroundColor: 'transparent',
-    regionStyle: {
-      initial: {
-        fill: 'rgba(210, 214, 222, 1)',
-        "fill-opacity": 1,
-        stroke: 'none',
-        "stroke-width": 0,
-        "stroke-opacity": 1
-      },
-      hover: {
-        "fill-opacity": 0.7,
-        cursor: 'pointer'
-      },
-      selected: {
-        fill: 'yellow'
-      },
-      selectedHover: {
-      }
-    },
-    markerStyle: {
-      initial: {
-        fill: '#00a65a',
-        stroke: '#111'
-      }
-    },
-    markers: [
+  function renderMap(location) {
+      var mapMarkers = [];
+      //    mapMarkers.length = location.length;
+      var i;
 
-      { latLng: [-22.679005, 14.531050], name: 'Swakopmund' }
-     /* {latLng: [-26.01721, 16.90105], name: 'Farm Sterreprag(Helmeringhausen)'},
-      {latLng: [-27.52284, 17.81388], name: 'FishRiver Canyon Roadhouse'},
-      {latLng: [-20.299165, 15.173725], name: 'Damara Mopane(Khorixas)'},
-      {latLng: [-21.46354, 17.84919], name: 'Hartebeestteich-Sud(Hochfeld )'},
-      {latLng: [-17.98636, 23.29582], name: 'Namushasha River Lodge(Kongola)'},
-      {latLng: [-22.575459, 17.073849], name: 'Olympia(Windhoek)'},
-      {latLng: [-22.780311, 18.017803], name: 'Eningu Clayhouse Lodge(Nina)'}*/
-    ]
-  });
+      console.info(location);
 
+      for ( i = 0 ; i < location.length; i++) {
+         
+          mapMarkers.push({  name: location[i].LocalityName, latLng: [location[i].Latitude, location[i].Longitude] });
+      }
+      console.info(mapMarkers)
+      var map = $('#world-map-markers');
+      map.vectorMap({
+          map: 'africa_mill',
+          normalizeFunction: 'polynomial',
+          hoverOpacity: 0.7,
+          focusOn: 'NA',
+          hoverColor: false,
+          backgroundColor: 'transparent',
+          regionStyle: {
+              initial: {
+                  fill: 'rgba(210, 214, 222, 1)',
+                  "fill-opacity": 1,
+                  stroke: 'none',
+                  "stroke-width": 0,
+                  "stroke-opacity": 1
+              },
+              hover: {
+                  "fill-opacity": 0.7,
+                  cursor: 'pointer'
+              },
+              selected: {
+                  fill: 'yellow'
+              },
+              selectedHover: {
+              }
+          },
+          markerStyle: {
+              initial: {
+                  fill: '#00a65a',
+                  stroke: '#111'
+              }
+          },
+          markers: mapMarkers
+          /*[{
+                       latLng: [ obj.Latitude, obj.Longitude ], name: obj.LocalityName
+                   }]*/
+           //
+      });
+     //map.addMarkers(mapMarkers, []);
+      
+  }
   /* SPARKLINE CHARTS
    * ----------------
    * Create a inline charts with spark line

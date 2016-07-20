@@ -139,7 +139,16 @@ namespace EM_ConProjects.Controllers
             }
             return View(projects);
         }
+        
+        // GET: /Projects/Locations/
+        public ActionResult Locations() {
+            //prevent circular reference during serialization
+            db.Configuration.ProxyCreationEnabled = false;
+            //get all locations
+            var locations = db.Localities.ToList();
+            return Json(locations, JsonRequestBehavior.AllowGet);
 
+        }
         // GET: /Projects/Create
         public ActionResult Create()
         {
