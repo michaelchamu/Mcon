@@ -3,7 +3,52 @@ var leaderCount = 0;
 var localCount = 0;
 var contCount = 0;
 var actCount = 0;
-                 
+
+$(document).ready(function () {
+    loadMap();
+})
+var marker;
+function loadMap() {
+    google.maps.visualRefresh = true;
+
+    var mapOptions = {
+        zoom: 8,
+        center: new google.maps.LatLng(-22.8609, 17.0458),
+        mapTypeId: google.maps.MapTypeId.MAP
+    };
+
+    var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+    //google.maps.event.trigger(map, "resize");
+    google.maps.event.addListener(map, 'click', function (e) {
+        placeMarker(e.latLng);
+    });
+
+    function placeMarker(location) {
+     
+
+        if (marker == undefined) {
+            marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                animation: google.maps.Animation.DROP
+            });
+        }
+        else {
+            marker.setPosition(location);
+        }
+        
+        /*var lat = location.lat();
+        var lng = location.lng();*/
+
+        /*$('#lat').val(lat);
+        $('#lng').val(lng);*/
+
+        marker.setIcon('http://labs.google.com/ridefinder/images/mm_20_red.png')
+        map.setCenter(location);
+    }
+    
+}
+
 function resetLoc() {
     $("#projDet").removeAttr("hidden");
     $("#loc").attr("hidden", "hidden");

@@ -206,8 +206,10 @@
                     <div class="form-group">
                         <h5 class="col-md-3">Locality Name</h5><div class="col-md-9">
                             <input class="form-control" id="locName"/><br />
-                             <div id="dvMap" style="height:300px; width:100%">
-                             </div>
+                                 <div class="row" style="height:100%; width:100%; overflow:visible;">
+                                     <div id="dvMap" style="height:300px; width:auto;">
+                                     </div>
+                                </div>
                         </div>
                     </div>
 
@@ -335,24 +337,8 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    
-    <script src="@Url.Content("/Scripts/Custom/CreateProject.js")"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD_-ZSvBzBEPvreHOiijrKxPgd8pOPyyeY"></script>
-
-<script type="text/javascript">
-        var mapOptions = {
-            center: new google.maps.LatLng(22.5609, 17.0658),
-            zoom: 14,
-            mapTypeId: google.maps.MapTypeId.TERRAIN
-        };
-       // var infoWindow = new google.maps.InfoWindow();
-        var latlngbounds = new google.maps.LatLngBounds();
-        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
-        google.maps.event.addListener(map, 'click', function (e) {
-            //alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
-        });
-        google.maps.event.trigger(map, 'resize');
- 
-</script>
+    <script src="@Url.Content("/Scripts/Custom/CreateProject.js")"></script>
+   
 
 }
