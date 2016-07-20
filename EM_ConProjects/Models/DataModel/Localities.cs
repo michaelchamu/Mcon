@@ -17,6 +17,8 @@ namespace EM_ConProjects.Models.DataModel
         public int Locality_Id { get; set; }
         public string LocalityName { get; set; }
         public int ProjectsProject_Id { get; set; }
+        public decimal Latitude { get; set; }
+        public decimal Longitude { get; set; }
     
         public virtual Projects Project { get; set; }
     }

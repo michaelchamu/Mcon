@@ -21,6 +21,8 @@
           <ScalarProperty Name="Locality_Id" ColumnName="Locality_Id" />
           <ScalarProperty Name="LocalityName" ColumnName="LocalityName" />
           <ScalarProperty Name="ProjectsProject_Id" ColumnName="ProjectsProject_Id" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

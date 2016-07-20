@@ -223,6 +223,8 @@ namespace EM_ConProjects.Controllers
                         DynamicParameters param = new DynamicParameters();
                         param.Add("@localityName", item.LocalityName);
                         param.Add("@projectId", projectId);
+                        param.Add("@locationLatitude", item.Latitude);
+                        param.Add("@locationLongitude", item.Longitude);
                         con.Open();
                         con.Execute("insertLocality", param, commandType: CommandType.StoredProcedure);
                         con.Close();

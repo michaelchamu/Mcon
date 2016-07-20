@@ -38,6 +38,8 @@
     <Property Name="Locality_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LocalityName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProjectsProject_Id" Type="int" Nullable="false" />
+    <Property Name="Latitude" Type="decimal" Nullable="false" Precision="10" Scale="6" />
+    <Property Name="Longitude" Type="decimal" Nullable="false" Precision="10" Scale="6" />
   </EntityType>
   <EntityType Name="Contractors">
     <Key>

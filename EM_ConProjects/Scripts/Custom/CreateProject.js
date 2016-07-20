@@ -37,11 +37,11 @@ function loadMap() {
             marker.setPosition(location);
         }
         
-        /*var lat = location.lat();
-        var lng = location.lng();*/
+        var lat = location.lat();
+        var lng = location.lng();
 
-        /*$('#lat').val(lat);
-        $('#lng').val(lng);*/
+        $('#locLatitude').val(lat);
+        $('#locLongitude').val(lng);
 
         marker.setIcon('http://labs.google.com/ridefinder/images/mm_20_red.png')
         map.setCenter(location);
@@ -89,6 +89,9 @@ function addBox() {
     
     //Add Locality to the hidden section
     hiddenText = '<input class="form-control" id="projectLocs_' + localCount + '__LocalityName" name="projectLocs[' + localCount + '].LocalityName" type="text" value="' + $('#locName').val() + '" />';
+    //Add latitude and longitude of chosen location
+    hiddenText += '<input class="form-control" id="projectLocs_' + localCount + '__Latitude" name="projectLocs[' + localCount + '].Latitude" type="text" value="' + $('#locLatitude').val() + '" />';
+    hiddenText += '<input class="form-control" id="projectLocs_' + localCount + '__Longitude" name="projectLocs[' + localCount + '].Longitude" type="text" value="' + $('#locLongitude').val() + '" />';
 
     //populate table with location values
     innerText += '<tr id="locRow' + localCount + '"><td><center>' + localCount + '</center></td>';
@@ -98,7 +101,7 @@ function addBox() {
     document.getElementById("listOfLocations").innerHTML += innerText;
     document.getElementById("hiddenModel").innerHTML += hiddenText;
     document.getElementById("locName").value = '';
-
+    console.info(hiddenText);
     localCount++;
 }
 
@@ -207,6 +210,8 @@ function actNumRecalc(index) {
 function removeLoc(id) {
     $('#locRow' + id).remove();
     $('#projectLocs_' + id + '__LocalityName').remove();
+    $('#projectLocs_' + id + '__Longitude').remove();
+    $('#projectLocs_' + id + '__Latitude').remove();
     //Call Recalc function only if the element being removed is not the last element in list.
     if (id != localCount) {
         locNumRecalc(id);
@@ -219,6 +224,8 @@ function locNumRecalc(index){
         //Change the index of the HTML elements
         $('#projectLocs_' + i + '__LocalityName').attr('id', 'projectLocs_' + (i - 1) + '__LocalityName');
         $('#projectLocs_' + i + '__LocalityName').attr('name', 'projectLocs[' + (i - 1) + '].LocalityName');
+        $('#projectLocs_' + i + '__Longitude').attr('name', 'projectLocs[' + (i - 1) + '].Longitude');
+        $('#projectLocs_' + i + '__Latitude').attr('name', 'projectLocs[' + (i - 1) + '].Latitude');
 
     }
 }

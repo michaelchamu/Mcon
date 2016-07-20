@@ -10,7 +10,7 @@
     @Html.ValidationSummary(true)
     
     <br />
-    
+   
     <div class="row">
 
         <div class="col-md-6">
@@ -205,7 +205,9 @@
 
                     <div class="form-group">
                         <h5 class="col-md-3">Locality Name</h5><div class="col-md-9">
-                            <input class="form-control" id="locName"/><br />
+                            <input class="form-control" id="locName"/>
+                            <input class="hidden" id="locLatitude"  />
+                            <input class="hidden" id="locLongitude" /><br />
                                  <div class="row" style="height:100%; width:100%; overflow:visible;">
                                      <div id="dvMap" style="height:300px; width:auto;">
                                      </div>
@@ -306,7 +308,12 @@
                     <div class="form-group">
                         <h5 class="col-md-3">Action Status</h5>
                        <div class="col-md-7">
-                            <input class="form-control" id="actStatus" />
+                           <select class="form-control" id="actStatus">
+                               <option value="">Please select a Status</option>
+                               <option value="Complete">Complete</option>
+                               <option value="Active">Active</option>
+                               <option value="On hold">On hold</option>
+                           </select>
                         </div>
                     </div>
                     <br />

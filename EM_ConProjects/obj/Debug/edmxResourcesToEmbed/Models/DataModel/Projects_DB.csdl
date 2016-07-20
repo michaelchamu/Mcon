@@ -42,6 +42,8 @@
     <Property Name="LocalityName" Type="String" Nullable="false" />
     <NavigationProperty Name="Project" Relationship="Projects_DB.LocalitiesProjects" FromRole="Localities" ToRole="Projects" />
     <Property Name="ProjectsProject_Id" Type="Int32" Nullable="false" />
+    <Property Name="Latitude" Type="Decimal" Nullable="false" Precision="10" Scale="6" />
+    <Property Name="Longitude" Type="Decimal" Nullable="false" cg:GetterAccess="Public" Precision="10" Scale="6" />
   </EntityType>
   <EntityType Name="Contractors">
     <Key>
