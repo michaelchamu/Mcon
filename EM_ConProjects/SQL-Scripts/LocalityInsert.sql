@@ -1,17 +1,15 @@
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 -- =============================================
 -- Author:		Donovan Maasz
 -- Create date: 28/05/2016
+-- Last edit: 20/07/2016 by BigBrownBear
 -- Description:	Script for inserting localities into the database
 -- =============================================
 CREATE PROCEDURE insertLocality
 	-- Add the parameters for the stored procedure here
 	@localityName VARCHAR(MAX) = '', 
-	@projectId INT = 0
-
+	@projectId INT = 0,
+	@locationLatitude decimal(10, 6) = 0,
+	@locationLongitude decimal(10, 6) = 0
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -20,11 +18,16 @@ BEGIN
 
     -- Insert statements for procedure here
 	INSERT INTO [dbo].[Localities]
-           ([LocalityName]
-           ,[ProjectsProject_Id])
+           ([LocalityName],
+           [ProjectsProject_Id],
+		   [Longitude],
+		   [Latitude]
+		   )
      VALUES
            (@localityName,
-			@projectId)
+			@projectId,
+			@locationLongitude,
+			@locationLatitude
+			)
 
 END
-GO
